@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- No background plate, so the mark sits on whatever the browser tab uses. -->
-  <text x="32" y="45" text-anchor="middle"
+  <!-- No background plate, so the mark sits on whatever the browser tab uses.
+       Sized to leave a margin, or the H clips against the edge. -->
+  <text x="32" y="44" text-anchor="middle"
         font-family="Outfit, 'Segoe UI', system-ui, sans-serif"
-        font-size="42" font-weight="700" fill="#2dd4bf">GH</text>
+        font-size="36" font-weight="700" letter-spacing="-1" fill="#2dd4bf">GH</text>
 </svg>
