@@ -116,7 +116,6 @@ export const skills = {
   baskets: [
     {
       name: 'Languages',
-      accent: 'teal',
       items: [
         { icon: 'skill-icons:python-dark', label: 'Python' },
         { icon: 'skill-icons:javascript', label: 'JavaScript' },
@@ -127,7 +126,6 @@ export const skills = {
     },
     {
       name: 'Web & App Development',
-      accent: 'violet',
       items: [
         { icon: 'logos:react', label: 'React' },
         { icon: 'logos:vitejs', label: 'Vite' },
@@ -140,7 +138,6 @@ export const skills = {
     },
     {
       name: 'Cloud & Data',
-      accent: 'blue',
       items: [
         { icon: 'logos:aws-lambda', label: 'Lambda' },
         { icon: 'logos:aws-dynamodb', label: 'DynamoDB' },
@@ -153,7 +150,6 @@ export const skills = {
     },
     {
       name: 'Analytics & AI',
-      accent: 'pink',
       items: [
         { icon: 'logos:tableau-icon', label: 'Tableau' },
         { icon: 'logos:microsoft-power-bi', label: 'Power BI' },

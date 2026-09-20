@@ -120,7 +120,7 @@ function Basket({ basket }) {
   useDrift(fieldRef, basket.items.length);
 
   return (
-    <article className="basket reveal" data-accent={basket.accent}>
+    <article className="basket reveal">
       <h3>{basket.name}</h3>
       <hr />
       <div className="basket-field" ref={fieldRef}>
