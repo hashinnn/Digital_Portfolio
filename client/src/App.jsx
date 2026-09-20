@@ -49,11 +49,13 @@ export default function App() {
         <Stats />
         <About onZoom={openOne} />
         <WhyMe />
-        <Skills />
-        <Certifications onOpen={openList} />
-        <Journey onZoom={openOne} />
+        {/* The work comes before the supporting evidence: a recruiter should
+            reach the projects without scrolling past eighteen certificates. */}
         <Projects onZoom={openOne} />
+        <Journey onZoom={openOne} />
+        <Skills />
         <Experience />
+        <Certifications onOpen={openList} />
         <Contact />
       </main>
 

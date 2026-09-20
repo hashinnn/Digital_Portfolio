@@ -15,15 +15,20 @@ function useDrift(fieldRef, count) {
     const field = fieldRef.current;
     if (!field || !count) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     const nodes = Array.from(field.children);
     let w = field.clientWidth;
     let h = field.clientHeight;
 
-    const bodies = nodes.map(() => ({
-      x: Math.random() * Math.max(w - BUBBLE_W, 1),
-      y: Math.random() * Math.max(h - BUBBLE_H, 1),
+    // Lay them out on a jittered grid rather than at random, so they start
+    // spread out instead of already piled on top of each other.
+    const cols = Math.max(1, Math.ceil(Math.sqrt(count)));
+    const rows = Math.max(1, Math.ceil(count / cols));
+    const cellW = Math.max(w - BUBBLE_W, 1) / cols;
+    const cellH = Math.max(h - BUBBLE_H, 1) / rows;
+
+    const bodies = nodes.map((_, i) => ({
+      x: (i % cols) * cellW + Math.random() * cellW * 0.5,
+      y: Math.floor(i / cols) * cellH + Math.random() * cellH * 0.5,
       vx: (Math.random() - 0.5) * 0.7 || 0.35,
       vy: (Math.random() - 0.5) * 0.7 || 0.35,
     }));
@@ -40,15 +45,66 @@ function useDrift(fieldRef, count) {
         if (b.y <= 0) { b.y = 0; b.vy = Math.abs(b.vy); }
         if (b.y >= h - BUBBLE_H) { b.y = h - BUBBLE_H; b.vy = -Math.abs(b.vy); }
 
+      }
+
+      // Separation: nudge any overlapping pair apart so the labels stay
+      // readable instead of stacking into an unreadable clump.
+      for (let i = 0; i < bodies.length; i++) {
+        for (let j = i + 1; j < bodies.length; j++) {
+          const a = bodies[i];
+          const b = bodies[j];
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const overlapX = BUBBLE_W - Math.abs(dx);
+          const overlapY = BUBBLE_H - Math.abs(dy);
+          if (overlapX <= 0 || overlapY <= 0) continue;
+
+          // Resolve along whichever axis needs the smaller correction.
+          if (overlapX < overlapY) {
+            const push = (overlapX / 2) * (dx < 0 ? -1 : 1);
+            a.x -= push;
+            b.x += push;
+            a.vx = -Math.abs(a.vx) * (dx < 0 ? -1 : 1);
+            b.vx = Math.abs(b.vx) * (dx < 0 ? -1 : 1);
+          } else {
+            const push = (overlapY / 2) * (dy < 0 ? -1 : 1);
+            a.y -= push;
+            b.y += push;
+            a.vy = -Math.abs(a.vy) * (dy < 0 ? -1 : 1);
+            b.vy = Math.abs(b.vy) * (dy < 0 ? -1 : 1);
+          }
+        }
+      }
+
+      for (let i = 0; i < bodies.length; i++) {
+        const b = bodies[i];
+        b.x = Math.min(Math.max(b.x, 0), Math.max(w - BUBBLE_W, 0));
+        b.y = Math.min(Math.max(b.y, 0), Math.max(h - BUBBLE_H, 0));
         nodes[i].style.transform = `translate(${b.x.toFixed(1)}px, ${b.y.toFixed(1)}px)`;
       }
       frame = requestAnimationFrame(step);
     };
-    frame = requestAnimationFrame(step);
+
+    const paint = () => {
+      for (let i = 0; i < bodies.length; i++) {
+        nodes[i].style.transform = `translate(${bodies[i].x.toFixed(1)}px, ${bodies[i].y.toFixed(
+          1
+        )}px)`;
+      }
+    };
+
+    // Place them before anything animates. Without this the bubbles sit
+    // stacked at the origin whenever the loop never runs — for a visitor who
+    // asked for reduced motion, or while the tab is in the background.
+    paint();
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced) frame = requestAnimationFrame(step);
 
     const onResize = () => {
       w = field.clientWidth;
       h = field.clientHeight;
+      paint();
     };
     window.addEventListener('resize', onResize);
 
@@ -64,7 +120,7 @@ function Basket({ basket }) {
   useDrift(fieldRef, basket.items.length);
 
   return (
-    <article className="basket reveal">
+    <article className="basket reveal" data-accent={basket.accent}>
       <h3>{basket.name}</h3>
       <hr />
       <div className="basket-field" ref={fieldRef}>

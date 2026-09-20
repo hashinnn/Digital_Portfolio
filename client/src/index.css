@@ -21,6 +21,7 @@
   /* Used only by the name gradient, which runs teal into violet into pink. */
   --purple: #a78bfa;
   --pink: #f472b6;
+  --blue: #60a5fa;
 
   /* White at reduced opacity — the only "greys" on the site. */
   --text: var(--white);
@@ -911,17 +912,46 @@ button {
 }
 
 .basket {
+  --accent: var(--teal);
   position: relative;
   background: var(--navy-light);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding-top: 22px;
   overflow: hidden;
-  transition: border-color 0.25s var(--ease);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.basket[data-accent='violet'] {
+  --accent: var(--purple);
+}
+
+.basket[data-accent='blue'] {
+  --accent: var(--blue);
+}
+
+.basket[data-accent='pink'] {
+  --accent: var(--pink);
+}
+
+/* A wash of the basket's own colour, strongest at the top. */
+.basket::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 14%, transparent) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
 }
 
 .basket:hover {
-  border-color: var(--teal);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 /* Diagonal hatch, straight from the reference. */
@@ -940,7 +970,7 @@ button {
   position: relative;
   z-index: 1;
   text-align: center;
-  color: var(--teal);
+  color: var(--accent);
   font-size: 17px;
   font-weight: 600;
   margin: 0 0 14px;
@@ -950,11 +980,18 @@ button {
   width: 80%;
   margin: 0 auto;
   border: none;
-  border-top: 1px solid var(--line);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 55%, transparent),
+    transparent
+  );
 }
 
 .basket-field {
   position: relative;
+  z-index: 1;
   height: 238px;
   overflow: hidden;
 }
@@ -977,8 +1014,14 @@ button {
   display: grid;
   place-items: center;
   background: var(--navy-mid);
-  border: 1px solid var(--line-teal);
-  color: var(--teal);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  /* Brand marks bring their own colours; single-colour marks inherit this. */
+  color: var(--accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.bubble-label {
+  text-shadow: 0 1px 3px var(--navy);
 }
 
 .bubble-label {
