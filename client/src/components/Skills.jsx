@@ -7,12 +7,12 @@ const BUBBLE_W = 62;
 const BUBBLE_H = 58;
 
 /**
- * Arranges the icon bubbles inside their basket, and — on pointer devices —
- * drifts them around, bouncing off the walls and off each other.
+ * Arranges the icon bubbles inside their basket and drifts them around,
+ * bouncing off the walls and off each other. Transform-only, so the work
+ * stays on the compositor rather than triggering layout each frame.
  *
- * Touch devices get the arrangement without the motion. Drifting bubbles rely
- * on hover to be readable and hold still enough to tap, and a phone has
- * neither, so movement there is a cost with no benefit.
+ * The arrangement is settled before the first paint, so it is already clean
+ * if the animation is skipped for reduced motion or paused by the browser.
  */
 function useDrift(fieldRef, count) {
   useEffect(() => {
@@ -111,16 +111,24 @@ function useDrift(fieldRef, count) {
 
     build();
 
+    // Motion runs everywhere except for visitors who have asked against it.
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const canHover = window.matchMedia('(hover: hover)').matches;
-    const shouldAnimate = canHover && !reduced;
 
     let frame;
-    if (shouldAnimate) {
-      const step = () => {
+    if (!reduced) {
+      let last = performance.now();
+
+      const step = (now) => {
+        // Advance by elapsed time rather than per frame, so the drift runs at
+        // the same speed on a 60Hz laptop, a 120Hz phone and anything that
+        // drops frames. Capped so returning from a background tab nudges the
+        // bubbles rather than flinging them across the basket.
+        const dt = Math.min((now - last) / 16.667, 3);
+        last = now;
+
         for (const b of bodies) {
-          b.x += b.vx;
-          b.y += b.vy;
+          b.x += b.vx * dt;
+          b.y += b.vy * dt;
           if (b.x <= 0) { b.x = 0; b.vx = Math.abs(b.vx); }
           if (b.x >= maxX()) { b.x = maxX(); b.vx = -Math.abs(b.vx); }
           if (b.y <= 0) { b.y = 0; b.vy = Math.abs(b.vy); }
@@ -131,6 +139,7 @@ function useDrift(fieldRef, count) {
         paint();
         frame = requestAnimationFrame(step);
       };
+
       frame = requestAnimationFrame(step);
     }
 
