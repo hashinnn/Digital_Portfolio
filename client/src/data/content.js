@@ -16,6 +16,8 @@ export const profile = {
   education: {
     school: 'Nanyang Polytechnic',
     course: 'Diploma in Applied AI & Analytics',
+    courseHref:
+      'https://www.nyp.edu.sg/student/study/schools/information-technology/diploma-applied-AI-analytics',
   },
   email: 'hasinirg7@gmail.com',
   whatsapp: '6587646580',
@@ -64,6 +66,7 @@ export const about = {
   extracurriculars: [
     'NYP Ladies in Tech — Sub-Committee Member',
     'NYP Cloud Computing — Sub-Committee Member',
+    'NYAA Community Leadership Initiatives (CLI) — Sub-Committee Member',
     'NYAA Bronze Award — Awarded for community service contributions',
     'NYAA Gold Award (in progress) — 80+ service hours completed',
   ],

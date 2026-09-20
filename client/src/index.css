@@ -463,14 +463,33 @@ button {
 }
 
 .home-education .school {
-  color: var(--white);
-  font-weight: 600;
+  color: var(--grey);
+  font-weight: 400;
 }
 
 .home-education .course {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding-left: 13px;
+  color: var(--white);
+  font-weight: 700;
+  transition: color 0.22s var(--ease);
+}
+
+.home-education .course svg {
+  opacity: 0.5;
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+}
+
+.home-education .course:hover {
   color: var(--teal);
+}
+
+.home-education .course:hover svg {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .home-education .course::before {

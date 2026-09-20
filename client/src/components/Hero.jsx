@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../data/content.js';
+import { ArrowUpRight } from './Icons.jsx';
 
 /** Types each role out, holds it, deletes it, moves to the next. */
 function useTypewriter(words, { type = 68, erase = 34, hold = 1700 } = {}) {
@@ -52,7 +53,16 @@ export default function Hero() {
 
           <p className="home-education">
             <span className="school">{profile.education.school}</span>
-            <span className="course">{profile.education.course}</span>
+            <a
+              className="course"
+              href={profile.education.courseHref}
+              target="_blank"
+              rel="noreferrer"
+              title="View the course on the NYP site"
+            >
+              {profile.education.course}
+              <ArrowUpRight width={13} height={13} />
+            </a>
           </p>
 
           <p className="home-tagline">{profile.tagline}</p>
