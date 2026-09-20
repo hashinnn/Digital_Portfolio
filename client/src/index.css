@@ -1029,20 +1029,8 @@ button {
   transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-/* Brand logos stay recognisable but are pulled toward the page's palette,
-   so the grid reads as one surface rather than a row of stickers. They come
-   back to full strength under the cursor. */
-.bubble-disc svg {
-  filter: saturate(0.45) brightness(0.92);
-  opacity: 0.88;
-  transition: filter 0.25s var(--ease), opacity 0.25s var(--ease);
-}
-
-.bubble:hover .bubble-disc svg {
-  filter: none;
-  opacity: 1;
-}
-
+/* Brand logos render at full strength — the calm comes from the cards
+   around them, not from dimming the marks themselves. */
 .bubble:hover .bubble-disc {
   border-color: var(--teal);
   box-shadow: 0 0 16px rgba(45, 212, 191, 0.3);
