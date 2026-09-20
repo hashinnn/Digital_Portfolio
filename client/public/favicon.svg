@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#070b16"/>
-  <text x="32" y="43" font-family="Outfit, Segoe UI, sans-serif" font-size="30" font-weight="700"
-        fill="#5eead4" text-anchor="middle">GH</text>
+  <!-- No background plate, so the mark sits on whatever the browser tab uses. -->
+  <text x="32" y="45" text-anchor="middle"
+        font-family="Outfit, 'Segoe UI', system-ui, sans-serif"
+        font-size="42" font-weight="700" fill="#2dd4bf">GH</text>
 </svg>
