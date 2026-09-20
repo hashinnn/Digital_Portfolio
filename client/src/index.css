@@ -1574,11 +1574,37 @@ button {
   padding: 28px;
 }
 
+.exp-list-wrap {
+  display: grid;
+  gap: 20px;
+}
+
+.exp-meta {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  /* Without this the rows stretch to the card's full height and the pill
+     balloons into a tall oval. */
+  align-content: start;
+  padding-top: 4px;
+}
+
 .exp-period {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--teal);
-  padding-top: 4px;
+}
+
+/* Says plainly whether an entry was a job or a programme. */
+.exp-kind {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text-mute);
 }
 
 .exp-role {
@@ -1654,6 +1680,12 @@ button {
   .exp-card {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+  .exp-meta {
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
   }
 }
 

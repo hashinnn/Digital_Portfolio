@@ -181,7 +181,7 @@ export const certifications = {
     { cat: 'Technical', title: 'AI for Industry — AI Singapore', img: '/assets/certs/ai4i-literacy-in-ai.png', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
     { cat: 'Technical', title: 'Web Development Bootcamp — Ipasmo', img: '/assets/certs/ipasmo-web-dev-bootcamp.png', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
     { cat: 'Technical', title: 'Analytics & Visualisation Challenge 2025 — SUSS', img: '/assets/certs/suss-avc-2025.png', href: '/assets/certs/suss-avc-2025.pdf' },
-    { cat: 'Technical', title: 'Internship Certificate — Hatch', img: '/assets/certs/hatch-internship.png', href: '/assets/docs/hatch-certificate.pdf' },
+    { cat: 'Technical', title: 'METEOR Programme — Crater', img: '/assets/certs/crater-meteor.png', href: '/assets/docs/crater-meteor-certificate.png' },
     { cat: 'Academic', title: 'Edusave Merit Award 2024', img: '/assets/certs/edusave-edusavemerit2024.jpeg', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
     { cat: 'Academic', title: 'Academic Achievement 2024', img: '/assets/certs/edusave-edusaveachievement2024.jpeg', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
     { cat: 'Academic', title: 'Academic Achievement 2023', img: '/assets/certs/edusave-edusaveachievement2023.jpeg', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
@@ -339,25 +339,45 @@ export const projects = [  {
 
 // ---------------------------------------------------------------------------
 
-export const experience = [
-  {
-    period: 'June 2022',
-    role: 'UX / Product Design Intern',
-    org: 'Hatch',
-    orgNote: 'Youth digital skills organisation',
-    bullets: [
-      'Produced 5 wireframes and 3 mood boards proposing a revised navigation structure for a platform serving 200+ underserved youth; elements of the proposal carried into the Q3 2022 site redesign.',
-      'Applied accessibility requirements to each design — type sizing, contrast and touch target dimensions — for an audience using low-end devices on unreliable connections.',
-      'Presented proposals to staff stakeholders and revised them against their feedback.',
-      'Issued two written references on completion of the placement.',
-    ],
-    docs: [
-      { label: 'Internship certificate', href: '/assets/docs/hatch-certificate.pdf' },
-      { label: 'Reference letter — Hatch', href: '/assets/docs/hatch-reference-letter.pdf' },
-      { label: 'Reference letter — Crater', href: '/assets/docs/crater-reference-letter.pdf' },
-    ],
-  },
-];
+export const experience = {
+  // The METEOR programme is training rather than employment, so the section
+  // is named to cover both without overstating either.
+  heading: 'Experience & Training',
+  items: [
+    {
+      period: 'May – Jun 2022',
+      role: 'UX / Product Design Intern',
+      kind: 'Internship',
+      org: 'Hatch',
+      orgNote: 'Youth digital skills organisation',
+      bullets: [
+        'Produced 5 wireframes and 3 mood boards in Figma proposing a revised navigation structure for a platform serving 200+ underserved youth; elements of the proposal carried into the Q3 2022 site redesign.',
+        'Applied accessibility requirements to each design — type sizing, contrast and touch target dimensions — for an audience using low-end devices on unreliable connections.',
+        'Presented proposals to staff stakeholders and revised them against their feedback.',
+      ],
+      docs: [
+        { label: 'Internship certificate', href: '/assets/docs/hatch-certificate.pdf' },
+        { label: 'Reference letter — Hatch', href: '/assets/docs/hatch-reference-letter.pdf' },
+      ],
+    },
+    {
+      period: 'May – Jun 2022',
+      role: 'METEOR Programme',
+      kind: 'Programme',
+      org: 'Crater',
+      orgNote: 'Youth development programme, supported by the National Youth Council',
+      bullets: [
+        'Completed Crater’s METEOR Programme covering project management, professional communications, networking and content creation, through industry-led workshops and real-world scenario training.',
+        'Took the initiative to lead group members and facilitate discussions on several occasions, and volunteered to teach peers the workshop content where I already knew it.',
+        'Secured the month-long work attachment with Hatch through the programme.',
+      ],
+      docs: [
+        { label: 'METEOR certificate', href: '/assets/docs/crater-meteor-certificate.png' },
+        { label: 'Reference letter — Crater', href: '/assets/docs/crater-reference-letter.pdf' },
+      ],
+    },
+  ],
+};
 
 export const contact = {
   heading: 'Connect with me',
