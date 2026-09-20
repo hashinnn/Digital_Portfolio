@@ -13,9 +13,10 @@ export const profile = {
   roles: ['full-stack apps.', 'cloud backends.', 'dashboards that decide.', 'things that ship.'],
   role: 'Software Developer | AI & Analytics Student',
   tagline:
-    'Full-stack builder and data storyteller. Every project I have shipped was recognised for something — and one is still being refined with the client who commissioned it.',
+    'Full-stack builder and data storyteller. Every project I have shipped was recognised for something — and one is now in the refinement stage with an industry client.',
   email: 'hasinirg7@gmail.com',
-  phone: '8764 6580',
+  whatsapp: '6587646580',
+  whatsappDisplay: '+65 8764 6580',
   linkedin: 'https://www.linkedin.com/in/ginjala-h-31223b383',
   github: GITHUB,
   cv: '/assets/docs/hatch-certificate.pdf',
@@ -45,28 +46,21 @@ export const stats = {
 export const about = {
   heading: 'About Me',
   polaroids: [
-    { src: '/assets/about/portrait.png', caption: 'NYP ♡', tilt: -6 },
-    { src: '/assets/about/aws-hackathon.png', caption: '2nd place\nAWS Hackathon', tilt: 8 },
-    { src: '/assets/about/suss-2026.jpeg', caption: 'Bronze\nSUSS 2026', tilt: -3 },
-    { src: '/assets/about/outstanding-presentation.png', caption: 'Outstanding\nProject Presentation', tilt: 5 },
+    { src: '/assets/about/aws-hackathon.jpeg', caption: '2nd place\nAWS x NYP', tilt: -6 },
+    { src: '/assets/about/genlink-presentation.jpeg', caption: 'Presenting\nGenlink', tilt: 8 },
+    { src: '/assets/about/suss-2026.png', caption: 'Bronze\nSUSS 2026', tilt: -3 },
+    { src: '/assets/about/aws-hackathon-2.jpeg', caption: 'Hackathon\nweekend', tilt: 5 },
   ],
-  intro:
-    'Year 2 Applied AI & Analytics student at Nanyang Polytechnic, and the kind who keeps working on a project after it has been marked. I build full-stack — React and Node on one side, Flask and MySQL on the other, AWS serverless when it earns its place — and what I care about is the distance between a working demo and something a person can actually rely on. I taught myself Tableau after losing a competition with it, went back the next year and placed; lose, rebuild, return is most of how I have learnt anything worth knowing. I am looking for software and data engineering roles where I can own a feature from the schema to the screen.',
-  introImages: [
-    { src: '/assets/about/estateops.png', alt: 'EstateOps defect management dashboard' },
-    { src: '/assets/about/genlink.png', alt: 'Genlink intergenerational platform' },
+  paragraphs: [
+    'I work across the stack and I am most at home in the unglamorous middle of it — designing the schema, writing the queries, wiring the API, and then finding out what breaks. That has meant relational modelling in MySQL and Postgres, REST services on Node and Flask, real-time state over Socket.IO, and an event-driven pipeline on AWS Lambda, DynamoDB and EventBridge where the interesting problem was idempotency rather than the UI. On the data side I work in Tableau, Power BI and DAX, and I care more about whether a chart changes a decision than whether it looks impressive.',
+    'The other half of what I do is getting people into a room. Through NYP Cloud Computing and NYP Ladies in Tech I have organised hackathons and hands-on workshops — scoping the problem statements, lining up the tooling, and making sure a beginner can actually finish something by the end of the session. Through NYAA I have run community programmes too: a session teaching seniors how to recognise scam calls and phishing attempts, and an activity getting students to engage with sustainability in a way that was not another lecture.',
+    'Those two halves turn out to be the same skill. Explaining a scam call to someone who has never heard of phishing is the same work as an error message that tells a user what to do next. I am looking for software and data engineering roles where I can own a feature from the schema to the screen, and stay long enough to find out whether it held up.',
   ],
   extracurriculars: [
     'NYP Ladies in Tech — Sub-Committee Member',
     'NYP Cloud Computing — Sub-Committee Member',
     'NYAA Bronze Award — Awarded for community service contributions',
     'NYAA Gold Award (in progress) — 80+ service hours completed',
-  ],
-  traits: [
-    'Ships Past The Grade',
-    'Self-Taught Fast',
-    'Client-Facing',
-    'Actually Finishes Things',
   ],
 };
 
@@ -82,7 +76,7 @@ export const whyMe = {
       project: 'Genlink',
       award: 'Outstanding Project Presentation',
       detail:
-        'An intergenerational platform where a senior records a story in Mandarin and a teenager reads it in English, auto-translated across 132 languages.',
+        'A Flask and MySQL platform that matches users across three age bands, auto-translates every post across 132 locales, and keeps chat and a shared chess board in sync over Socket.IO.',
     },
     {
       project: 'EstateOps',
@@ -100,7 +94,7 @@ export const whyMe = {
       project: 'Social Gifting Insights',
       award: '3rd place — SUSS Analytics & Visualisation 2026',
       detail:
-        'Bronze, one year after walking away from the same competition with nothing. 10,869 orders analysed in Tableau in a single day.',
+        'Bronze, one year after walking away from the same competition with nothing. 10,869 orders analysed in Tableau in a two-hour build.',
     },
     {
       project: "NYP Students' Union",
@@ -181,10 +175,11 @@ export const certifications = {
     { cat: 'Technical', title: 'PCEP — Certified Entry-Level Python Programmer', img: '/assets/certs/pcep-python.png', href: '/assets/certs/pcep-python.pdf' },
     { cat: 'Technical', title: 'Web Development Fundamentals — IBM', img: '/assets/certs/ibm-web-dev.png', href: '/assets/certs/ibm-web-dev.pdf' },
     { cat: 'Technical', title: 'UX Design Fundamentals — IBM', img: '/assets/certs/ibm-ux-design.png', href: '/assets/certs/ibm-ux-design.pdf' },
-    { cat: 'Technical', title: 'AI Fluency — Anthropic', href: '/assets/certs/anthropic-ai-fluency.pdf' },
-    { cat: 'Technical', title: 'Literacy in AI — AI Singapore', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
-    { cat: 'Technical', title: 'Web Development Bootcamp — Ipasmo', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
-    { cat: 'Technical', title: 'Analytics & Visualisation Challenge 2025 — SUSS', href: '/assets/certs/suss-avc-2025.pdf' },
+    { cat: 'Technical', title: 'AI Fluency — Anthropic', img: '/assets/certs/anthropic-ai-fluency.png', href: '/assets/certs/anthropic-ai-fluency.pdf' },
+    { cat: 'Technical', title: 'AI for Industry — AI Singapore', img: '/assets/certs/ai4i-literacy-in-ai.png', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
+    { cat: 'Technical', title: 'Web Development Bootcamp — Ipasmo', img: '/assets/certs/ipasmo-web-dev-bootcamp.png', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
+    { cat: 'Technical', title: 'Analytics & Visualisation Challenge 2025 — SUSS', img: '/assets/certs/suss-avc-2025.png', href: '/assets/certs/suss-avc-2025.pdf' },
+    { cat: 'Technical', title: 'Internship Certificate — Hatch', img: '/assets/certs/hatch-internship.png', href: '/assets/docs/hatch-certificate.pdf' },
     { cat: 'Academic', title: 'Edusave Merit Award 2024', img: '/assets/certs/edusave-edusavemerit2024.jpeg', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
     { cat: 'Academic', title: 'Academic Achievement 2024', img: '/assets/certs/edusave-edusaveachievement2024.jpeg', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
     { cat: 'Academic', title: 'Academic Achievement 2023', img: '/assets/certs/edusave-edusaveachievement2023.jpeg', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
@@ -235,11 +230,11 @@ export const journey = {
       title: 'SUSS Analytics & Visualisation Challenge',
       verdict: '3rd place — Bronze',
       image: '/assets/projects/suss2026-dashboard.jpeg',
-      caption: '10,869 orders, one day, one team',
+      caption: '10,869 orders, two hours, one team',
       href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       linkLabel: 'Open the dashboard',
       body:
-        'Back to the same competition with a year of practice behind me. One day, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
+        'Back to the same competition with a year of practice behind me. Two hours, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
     },
     {
       chapter: '04',
@@ -295,7 +290,7 @@ export const projects = [
     award: 'Outstanding Project Presentation',
     image: '/assets/projects/genlink.png',
     description:
-      'Mdm Tan, 68, records a recipe in Mandarin. Jun Wei, 17, reads it in English. One post later they are playing chess every Sunday. Voice stories, translation across 132 languages, community events and a live-synced chess board.',
+      'A Flask and MySQL platform pairing users across three age bands by shared interests. Audio posts are uploaded server-side and passed through the Google Neural Machine Translation API so every post renders in the reader’s own language across 132 locales. Socket.IO carries the direct messaging and a move-by-move synced chess board, with Google OAuth 2.0 for sign-in and an admin approval queue gating community events.',
     tags: ['Flask', 'MySQL', 'Socket.IO', 'Google NMT'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' },
@@ -320,7 +315,7 @@ export const projects = [
     award: '3rd place — SUSS Analytics & Visualisation 2026',
     image: '/assets/projects/suss2026.png',
     description:
-      'A one-day team build in Tableau answering how a social gifting platform can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
+      'A two-hour team build in Tableau answering how a social gifting platform can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
     tags: ['Tableau', 'EDA', 'Data Storytelling'],
     links: [
       {
@@ -350,10 +345,10 @@ export const experience = [
     org: 'Hatch',
     orgNote: 'Youth digital skills organisation',
     bullets: [
-      'Joined a small product team and shipped design work into a live platform used by 200+ underserved youth — 5 wireframes and 3 mood boards proposing a clearer navigation structure, several of which carried into the Q3 2022 redesign.',
-      'Worked to a real accessibility brief rather than a classroom one: legible type, reachable tap targets, and flows that hold up for users on cheap phones and patchy connections.',
-      'Presented my proposals to staff and defended the reasoning behind them — my first experience of designing for someone else\'s users instead of my own assumptions.',
-      'Left with two written references, and with the realisation that I wanted to build the thing rather than hand off the mockup. Everything I have shipped since has been full-stack.',
+      'Produced 5 wireframes and 3 mood boards proposing a revised navigation structure for a platform serving 200+ underserved youth; elements of the proposal carried into the Q3 2022 site redesign.',
+      'Applied accessibility requirements to each design — type sizing, contrast and touch target dimensions — for an audience using low-end devices on unreliable connections.',
+      'Presented proposals to staff stakeholders and revised them against their feedback.',
+      'Issued two written references on completion of the placement.',
     ],
     docs: [
       { label: 'Internship certificate', href: '/assets/docs/hatch-certificate.pdf' },
@@ -365,7 +360,7 @@ export const experience = [
 
 export const contact = {
   heading: 'Connect with me',
-  lead: 'Whether you want to collaborate, hire, or just say hi — I would love to hear from you. Reach out on any platform below, or send a message directly.',
+  lead: 'Whether you want to collaborate, hire, or just say hi — I would love to hear from you. Reach out on any platform below, or send a message straight to my WhatsApp.',
 };
 
 export const navLinks = [

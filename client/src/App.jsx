@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { profile } from './data/content.js';
 import { useReveal } from './hooks/useReveal.js';
 
+import SpaceBackdrop from './components/SpaceBackdrop.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Stats from './components/Stats.jsx';
@@ -16,26 +17,40 @@ import Contact from './components/Contact.jsx';
 import Lightbox from './components/Lightbox.jsx';
 
 export default function App() {
-  const [viewing, setViewing] = useState(null);
+  // The viewer always holds a list, so the certificate deck can be stepped
+  // through; a one-off image is simply a list of one.
+  const [viewer, setViewer] = useState(null);
 
   useReveal();
 
-  const open = useCallback((item) => setViewing(item), []);
-  const close = useCallback(() => setViewing(null), []);
+  const openOne = useCallback((item) => setViewer({ items: [item], index: 0 }), []);
+  const openList = useCallback((items, index) => setViewer({ items, index }), []);
+  const close = useCallback(() => setViewer(null), []);
+
+  const step = useCallback(
+    (delta) =>
+      setViewer((v) => {
+        if (!v) return v;
+        const next = (v.index + delta + v.items.length) % v.items.length;
+        return { ...v, index: next };
+      }),
+    []
+  );
 
   return (
     <>
+      <SpaceBackdrop />
       <Nav />
 
       <main>
         <Hero />
         <Stats />
-        <About />
+        <About onZoom={openOne} />
         <WhyMe />
         <Skills />
-        <Certifications onOpen={open} />
-        <Journey onZoom={open} />
-        <Projects onZoom={open} />
+        <Certifications onOpen={openList} />
+        <Journey onZoom={openOne} />
+        <Projects onZoom={openOne} />
         <Experience />
         <Contact />
       </main>
@@ -47,7 +62,9 @@ export default function App() {
         </div>
       </footer>
 
-      {viewing && <Lightbox item={viewing} onClose={close} />}
+      {viewer && (
+        <Lightbox items={viewer.items} index={viewer.index} onClose={close} onStep={step} />
+      )}
     </>
   );
 }

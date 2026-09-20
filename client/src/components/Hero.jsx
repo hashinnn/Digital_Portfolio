@@ -57,7 +57,7 @@ export default function Hero() {
             Get in Touch
           </a>
           <a href={profile.cv} target="_blank" rel="noreferrer" className="btn btn-ghost">
-            <Download width={17} height={17} /> Credentials
+            <Download width={17} height={17} /> Download CV
           </a>
         </div>
 

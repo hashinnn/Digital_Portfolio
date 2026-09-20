@@ -81,13 +81,15 @@ export default function Certifications({ onOpen }) {
         </div>
 
         <p className="cert-hint">
-          {narrow ? 'Swipe through, tap any to view.' : 'Hover to lift one out, click to view it in full.'}
+          {narrow
+            ? 'Swipe through, tap any to view.'
+            : 'Hover to lift one out, click to open it — then use the arrows to step through the rest.'}
         </p>
 
         {narrow ? (
           <div className="cert-rail">
-            {items.map((cert) => (
-              <button className="cert-card" key={cert.title} onClick={() => onOpen(cert)} title={cert.title}>
+            {items.map((cert, i) => (
+              <button className="cert-card" key={cert.title} onClick={() => onOpen(items, i)} title={cert.title}>
                 <CertFace cert={cert} />
               </button>
             ))}
@@ -114,7 +116,7 @@ export default function Certifications({ onOpen }) {
                   }}
                   onMouseEnter={() => setHovered(i)}
                   onFocus={() => setHovered(i)}
-                  onClick={() => onOpen(cert)}
+                  onClick={() => onOpen(items, i)}
                 >
                   <CertFace cert={cert} />
                 </button>

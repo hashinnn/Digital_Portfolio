@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { skills } from '../data/content.js';
+import { ChevronDown } from './Icons.jsx';
 
 const BUBBLE_W = 62;
 const BUBBLE_H = 58;
@@ -81,6 +82,8 @@ function Basket({ basket }) {
 }
 
 export default function Skills() {
+  const [showList, setShowList] = useState(false);
+
   return (
     <section className="section" id="skills">
       <div className="shell">
@@ -92,6 +95,30 @@ export default function Skills() {
             <Basket basket={basket} key={basket.name} />
           ))}
         </div>
+
+        {/* The bubbles drift, so offer the same contents as plain text. */}
+        <div className="skills-summary-bar reveal">
+          <button
+            className="btn btn-ghost"
+            onClick={() => setShowList((v) => !v)}
+            aria-expanded={showList}
+            aria-controls="skills-summary"
+          >
+            {showList ? 'Hide skills summary' : 'View skills summary'}
+            <ChevronDown width={16} height={16} className={showList ? 'is-flipped' : ''} />
+          </button>
+        </div>
+
+        {showList && (
+          <div className="skills-summary" id="skills-summary">
+            {skills.baskets.map((basket) => (
+              <div className="summary-group" key={basket.name}>
+                <h4>{basket.name}</h4>
+                <p>{basket.items.map((i) => i.label).join(' · ')}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

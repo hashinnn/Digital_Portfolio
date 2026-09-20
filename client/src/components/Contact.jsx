@@ -1,54 +1,48 @@
 import { useState } from 'react';
 import { contact, profile } from '../data/content.js';
-import { ArrowRight, Github, LinkedIn, Mail, Phone } from './Icons.jsx';
+import { ArrowUpRight, Github, LinkedIn, Mail, WhatsApp } from './Icons.jsx';
 
-const empty = { name: '', email: '', message: '', company: '' };
+const empty = { name: '', email: '', message: '' };
 
 export default function Contact() {
   const [form, setForm] = useState(empty);
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(null);
-  const [sending, setSending] = useState(false);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  async function onSubmit(e) {
+  /**
+   * WhatsApp has no way for a web page to send on someone's behalf, so the
+   * form composes the message and hands it to WhatsApp already typed out —
+   * the visitor just presses send, and it arrives from their own number.
+   */
+  function onSubmit(e) {
     e.preventDefault();
-    setSending(true);
-    setStatus(null);
-    setErrors({});
 
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        if (data.errors) setErrors(data.errors);
-        setStatus({ ok: false, text: data.error || 'Please check the fields above.' });
-        return;
-      }
-
-      setForm(empty);
-      setStatus({ ok: true, text: 'Thanks — your message is on its way. I will get back to you soon.' });
-    } catch {
-      setStatus({
-        ok: false,
-        text: `Something went wrong. You can reach me directly at ${profile.email}.`,
-      });
-    } finally {
-      setSending(false);
+    const next = {};
+    if (form.name.trim().length < 2) next.name = 'Please enter your name.';
+    if (form.message.trim().length < 10) next.message = 'Please write a little more.';
+    if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) {
+      next.email = 'That email address does not look right.';
     }
+    setErrors(next);
+    if (Object.keys(next).length) return;
+
+    const lines = [
+      `Hi Hasini, I'm ${form.name.trim()}.`,
+      '',
+      form.message.trim(),
+    ];
+    if (form.email.trim()) lines.push('', `You can reach me at ${form.email.trim()}`);
+
+    const url = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank', 'noopener');
   }
 
   const socials = [
-    { icon: Mail, label: profile.email, name: 'Email', href: `mailto:${profile.email}` },
-    { icon: Phone, label: profile.phone, name: 'Phone', href: `tel:+65${profile.phone.replace(/\s/g, '')}` },
-    { icon: LinkedIn, label: 'LinkedIn', name: 'LinkedIn', href: profile.linkedin },
-    { icon: Github, label: 'GitHub', name: 'GitHub', href: profile.github },
+    { icon: WhatsApp, name: 'WhatsApp', href: `https://wa.me/${profile.whatsapp}` },
+    { icon: Mail, name: 'Email', href: `mailto:${profile.email}` },
+    { icon: LinkedIn, name: 'LinkedIn', href: profile.linkedin },
+    { icon: Github, name: 'GitHub', href: profile.github },
   ];
 
   return (
@@ -59,7 +53,7 @@ export default function Contact() {
         <p className="section-lead">{contact.lead}</p>
 
         <div className="contact-socials reveal">
-          {socials.map(({ icon: Icon, label, name, href }) => (
+          {socials.map(({ icon: Icon, name, href }) => (
             <a
               className="contact-social"
               key={name}
@@ -89,7 +83,7 @@ export default function Contact() {
           </div>
 
           <div className={`field${errors.email ? ' has-error' : ''}`}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email (optional)</label>
             <input
               id="email"
               type="email"
@@ -97,7 +91,6 @@ export default function Contact() {
               onChange={set('email')}
               placeholder="you@company.com"
               autoComplete="email"
-              required
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
@@ -114,28 +107,17 @@ export default function Contact() {
             {errors.message && <span className="error">{errors.message}</span>}
           </div>
 
-          {/* Honeypot — hidden from people, filled in by bots. */}
-          <div className="hp" aria-hidden="true">
-            <label htmlFor="company">Company</label>
-            <input
-              id="company"
-              tabIndex={-1}
-              autoComplete="off"
-              value={form.company}
-              onChange={set('company')}
-            />
-          </div>
-
-          {status && (
-            <p className={`form-status${status.ok ? '' : ' bad'}`} role="status">
-              {status.text}
-            </p>
-          )}
-
-          <button className="btn btn-primary" type="submit" disabled={sending}>
-            {sending ? 'Sending…' : 'Send message'}
-            {!sending && <ArrowRight width={17} height={17} />}
+          <button className="btn btn-primary" type="submit">
+            <WhatsApp width={18} height={18} /> Send on WhatsApp
           </button>
+
+          <p className="form-note">
+            This opens WhatsApp with your message ready to send — nothing is sent until you
+            press send there. Prefer email?{' '}
+            <a href={`mailto:${profile.email}`}>
+              {profile.email} <ArrowUpRight width={13} height={13} />
+            </a>
+          </p>
         </form>
       </div>
     </section>

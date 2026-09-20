@@ -86,6 +86,14 @@ Certificates are a fanned deck; each entry takes an `img` (the poster shown on t
 and an `href` (the real document). Entries with no `img` get a generated navy cover and
 the viewer offers a link straight to the PDF.
 
+## Space backdrop
+
+`SpaceBackdrop.jsx` carries over the two effects from the previous portfolio: a canvas
+starfield of drifting teal particles that link up when they pass within 120px, and a
+400px radial glow that follows the cursor. Both are decorative, so the glow is skipped
+below 768px and both are skipped entirely under `prefers-reduced-motion`. The section
+bands are translucent so the field stays visible through them.
+
 ## A note on icons
 
 The tech icons load from the Iconify API at runtime rather than being bundled. They are
@@ -94,6 +102,15 @@ bubbles render as empty circles with their text labels still readable — nothin
 the page is affected.
 
 ## Contact form
+
+The form composes the visitor's message and opens WhatsApp with it already typed out,
+addressed to the number in `profile.whatsapp`. A web page cannot send WhatsApp messages
+on someone's behalf, so the visitor presses send in WhatsApp themselves — which also
+means the message arrives from their own number, with a thread you can reply in.
+
+The Express endpoint below is still wired up and working, but nothing on the page posts
+to it any more. Keep it if you ever want an email-based form back; otherwise `nodemailer`
+and `/api/contact` can both be removed.
 
 `POST /api/contact` validates the submission, drops anything that fills the hidden
 honeypot field, and rate-limits to 5 messages per IP per 15 minutes.

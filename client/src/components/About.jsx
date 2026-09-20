@@ -1,6 +1,6 @@
 import { about } from '../data/content.js';
 
-export default function About() {
+export default function About({ onZoom }) {
   return (
     <section className="section" id="about">
       <div className="shell">
@@ -11,19 +11,21 @@ export default function About() {
         <div className="polaroids reveal">
           {about.polaroids.map((p) => (
             <figure className="polaroid" key={p.src} style={{ '--tilt': `${p.tilt}deg` }}>
-              <img src={p.src} alt={p.caption.replace('\n', ' ')} loading="lazy" />
+              <button
+                className="polaroid-shot"
+                onClick={() => onZoom({ img: p.src, title: p.caption.replace('\n', ' — ') })}
+                aria-label={`View ${p.caption.replace('\n', ' ')} full size`}
+              >
+                <img src={p.src} alt={p.caption.replace('\n', ' ')} loading="lazy" />
+              </button>
               <figcaption>{p.caption}</figcaption>
             </figure>
           ))}
         </div>
 
-        {/* One paragraph, flanked by two shots */}
-        <div className="about-block reveal">
-          <div className="about-text">
-            <p>{about.intro}</p>
-          </div>
-          {about.introImages.map((img) => (
-            <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
+        <div className="about-prose reveal">
+          {about.paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
           ))}
         </div>
 
@@ -34,15 +36,6 @@ export default function About() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </div>
-
-        <p className="traits-label reveal">My lecturers and teammates say I am</p>
-        <div className="traits reveal">
-          {about.traits.map((trait) => (
-            <span className="trait" key={trait}>
-              {trait}
-            </span>
-          ))}
         </div>
       </div>
     </section>

@@ -129,6 +129,31 @@ export const Certificate = (p) => (
   </svg>
 );
 
+export const ChevronDown = ({ className, ...p }) => (
+  <svg {...base} {...p} className={`chev ${className ?? ''}`}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+export const ChevronLeft = (p) => (
+  <svg {...base} {...p}>
+    <path d="m15 5-7 7 7 7" />
+  </svg>
+);
+
+export const ChevronRight = (p) => (
+  <svg {...base} {...p}>
+    <path d="m9 5 7 7-7 7" />
+  </svg>
+);
+
+export const WhatsApp = (p) => (
+  <svg {...base} {...p}>
+    <path d="M3.5 20.5 4.8 16A8.2 8.2 0 1 1 8 19.2l-4.5 1.3Z" />
+    <path d="M9 9.2c.2 1 .7 2 1.5 2.8.8.8 1.8 1.3 2.8 1.5l.9-1.1 1.9.8v1.5c0 .5-.4.9-.9.9a7.6 7.6 0 0 1-7.3-7.3c0-.5.4-.9.9-.9h1.5l.8 1.9-1 .9Z" />
+  </svg>
+);
+
 export const Tableau = (p) => (
   <svg {...base} {...p}>
     <path d="M12 3v5M12 16v5M9.5 5.5h5M9.5 18.5h5" />
