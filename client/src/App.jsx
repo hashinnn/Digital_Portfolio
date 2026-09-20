@@ -4,6 +4,7 @@ import { useReveal } from './hooks/useReveal.js';
 
 import SpaceBackdrop from './components/SpaceBackdrop.jsx';
 import Nav from './components/Nav.jsx';
+import SectionDots from './components/SectionDots.jsx';
 import Hero from './components/Hero.jsx';
 import Stats from './components/Stats.jsx';
 import About from './components/About.jsx';
@@ -41,6 +42,7 @@ export default function App() {
     <>
       <SpaceBackdrop />
       <Nav />
+      <SectionDots />
 
       <main>
         <Hero />

@@ -37,54 +37,68 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
-      <div className="shell">
-        <div className="hero-photo">
+      <div className="shell hero-grid">
+        <div className="hero-copy">
+          <p className="hero-hi">Hi there, I&apos;m</p>
+          <h1 className="hero-name">{profile.name}</h1>
+
+          <p className="hero-typed">
+            I build {typed}
+            <span className="caret" />
+          </p>
+
+          <p className="hero-role">{profile.role}</p>
+          <p className="hero-tagline">{profile.tagline}</p>
+
+          <div className="hero-actions">
+            <a href="#projects" className="btn btn-primary">
+              View My Work
+            </a>
+            <a href="#contact" className="btn btn-ghost">
+              Get In Touch
+            </a>
+            <a href={profile.cv} target="_blank" rel="noreferrer" className="btn btn-primary">
+              <Download width={17} height={17} /> Download CV
+            </a>
+          </div>
+
+          <div className="hero-socials">
+            <a className="icon-btn" href={`mailto:${profile.email}`} aria-label="Email Hasini">
+              <Mail />
+            </a>
+            <a
+              className="icon-btn"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn profile"
+            >
+              <LinkedIn />
+            </a>
+            <a
+              className="icon-btn"
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+            >
+              <Github />
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-portrait">
+          <span className="hero-halo" aria-hidden="true" />
           <img src={profile.photo} alt={`Portrait of ${profile.name}`} />
         </div>
-
-        <h1 className="hero-name">Hi! I&apos;m {profile.name}.</h1>
-
-        <h2 className="hero-typed">
-          I build {typed}
-          <span className="caret" />
-        </h2>
-
-        <p className="hero-role">{profile.role}</p>
-        <p className="hero-tagline">{profile.tagline}</p>
-
-        <div className="hero-actions">
-          <a href="#contact" className="btn btn-primary">
-            Get in Touch
-          </a>
-          <a href={profile.cv} target="_blank" rel="noreferrer" className="btn btn-ghost">
-            <Download width={17} height={17} /> Download CV
-          </a>
-        </div>
-
-        <div className="hero-socials">
-          <a className="icon-btn" href={`mailto:${profile.email}`} aria-label="Email Hasini">
-            <Mail />
-          </a>
-          <a
-            className="icon-btn"
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn profile"
-          >
-            <LinkedIn />
-          </a>
-          <a
-            className="icon-btn"
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub profile"
-          >
-            <Github />
-          </a>
-        </div>
       </div>
+
+      <a className="scroll-cue" href="#about" aria-label="Scroll to About">
+        <span className="scroll-mouse" aria-hidden="true">
+          <span className="scroll-wheel" />
+        </span>
+        <span className="scroll-label">Scroll Down</span>
+      </a>
     </section>
   );
 }
