@@ -2,7 +2,7 @@
 
 Personal portfolio. A fully static React site — no backend, no database, no API calls.
 
-**Live:** https://hashinnn.github.io/Digital_Portfolio/
+**Live:** https://hashinnn.github.io
 
 ## Stack
 
@@ -36,13 +36,15 @@ builds to `client/dist` and serves the production output.
 `main`. To enable it once: **Settings → Pages → Build and deployment → Source:
 GitHub Actions**.
 
-The workflow sets `VITE_BASE` to `/<repository-name>/`, because Pages serves a project
-repo from a subpath. Asset URLs in `content.js` are wrapped in a small `asset()` helper
-that prefixes `import.meta.env.BASE_URL`, so the same source builds correctly for:
+This repo is named `hashinnn.github.io`, matching the username, so GitHub serves it as a
+user site from the domain root — no base path needed.
 
-- a project page — `hashinnn.github.io/Digital_Portfolio/`
-- a user page — rename the repo to `hashinnn.github.io`, then drop the `VITE_BASE` line
-- a custom domain — add a `CNAME` file and drop the `VITE_BASE` line
+Asset URLs in `content.js` go through a small `asset()` helper that prefixes
+`import.meta.env.BASE_URL`, so the source still builds correctly if the site ever moves:
+
+- **user site** (current) — no `VITE_BASE`, serves from `/`
+- **project repo** — set `VITE_BASE: /<repo-name>/` in the workflow's build step
+- **custom domain** — add a `CNAME` file, leave `VITE_BASE` unset
 
 ## Editing content
 

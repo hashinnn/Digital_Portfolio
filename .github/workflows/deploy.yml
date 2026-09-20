@@ -31,10 +31,9 @@ jobs:
         run: npm ci --prefix client
 
       - name: Build
-        # Serves from https://<user>.github.io/<repo>/, so the base path is the
-        # repository name. Drop this line if you move to a custom domain.
-        env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+        # This is a user site (repo name matches the username), so it serves
+        # from the domain root and needs no base path. A project repo would
+        # set VITE_BASE to /<repo-name>/ here.
         run: npm run build --prefix client
 
       - uses: actions/configure-pages@v5
