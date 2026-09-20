@@ -13,6 +13,10 @@ export const profile = {
   roles: ['full-stack apps.', 'cloud backends.', 'dashboards people act on.', 'things that ship.'],
   tagline:
     'Full-stack builder and data storyteller — two hackathon podiums, an Outstanding Project Presentation, and a system now in the refinement stage with an industry client.',
+  education: {
+    school: 'Nanyang Polytechnic',
+    course: 'Diploma in Applied AI & Analytics',
+  },
   email: 'hasinirg7@gmail.com',
   whatsapp: '6587646580',
   whatsappDisplay: '+65 8764 6580',

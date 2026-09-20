@@ -449,7 +449,39 @@ button {
   font-size: 1.15rem;
   color: var(--grey-light);
   height: 1.8em;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+}
+
+/* School and course, split by a small teal rule. */
+.home-education {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  font-size: 0.9rem;
+}
+
+.home-education .school {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.home-education .course {
+  position: relative;
+  padding-left: 13px;
+  color: var(--teal);
+}
+
+.home-education .course::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 13px;
+  background: var(--line-teal);
 }
 
 .typed-prefix {
@@ -578,8 +610,16 @@ button {
   .home-tagline {
     margin-inline: auto;
   }
+  .home-education,
   .home-cta {
     justify-content: center;
+  }
+  /* Stacked on a phone, so the divider rule has nothing to divide. */
+  .home-education .course {
+    padding-left: 0;
+  }
+  .home-education .course::before {
+    display: none;
   }
   .pfp-wrapper {
     width: 200px;

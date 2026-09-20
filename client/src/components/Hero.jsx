@@ -50,6 +50,11 @@ export default function Hero() {
             <span className="typed-cursor">|</span>
           </div>
 
+          <p className="home-education">
+            <span className="school">{profile.education.school}</span>
+            <span className="course">{profile.education.course}</span>
+          </p>
+
           <p className="home-tagline">{profile.tagline}</p>
 
           <div className="home-cta">
