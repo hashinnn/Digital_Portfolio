@@ -11,7 +11,6 @@ export const profile = {
   photo: '/assets/hasini.png',
   // The typewriter cycles through these after "I build".
   roles: ['full-stack apps.', 'cloud backends.', 'dashboards people act on.', 'things that ship.'],
-  role: 'Software Developer | AI & Analytics Student',
   tagline:
     'Full-stack builder and data storyteller — two hackathon podiums, an Outstanding Project Presentation, and a system now in the refinement stage with an industry client.',
   email: 'hasinirg7@gmail.com',

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../data/content.js';
-import { Download, Github, LinkedIn, Mail } from './Icons.jsx';
 
 /** Types each role out, holds it, deletes it, moves to the next. */
 function useTypewriter(words, { type = 68, erase = 34, hold = 1700 } = {}) {
@@ -37,67 +36,47 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
-      <div className="shell hero-grid">
-        <div className="hero-copy">
-          <p className="hero-hi">Hi there, I&apos;m</p>
-          <h1 className="hero-name">{profile.name}</h1>
+      <div className="home-container">
+        <div className="home-text">
+          <p className="home-greeting">Hi there, I&apos;m</p>
 
-          <p className="hero-typed">
-            I build {typed}
-            <span className="caret" />
-          </p>
+          <h1 className="home-name">
+            <span className="gradient-text">{profile.name}</span>
+          </h1>
 
-          <p className="hero-role">{profile.role}</p>
-          <p className="hero-tagline">{profile.tagline}</p>
+          <div className="typed-wrapper">
+            <span className="typed-prefix">I build </span>
+            <span className="typed-text">{typed}</span>
+            <span className="typed-cursor">|</span>
+          </div>
 
-          <div className="hero-actions">
+          <p className="home-tagline">{profile.tagline}</p>
+
+          <div className="home-cta">
             <a href="#projects" className="btn btn-primary">
               View My Work
             </a>
-            <a href="#contact" className="btn btn-ghost">
+            <a href="#contact" className="btn btn-outline">
               Get In Touch
             </a>
             <a href={profile.cv} target="_blank" rel="noreferrer" className="btn btn-primary">
-              <Download width={17} height={17} /> Download CV
-            </a>
-          </div>
-
-          <div className="hero-socials">
-            <a className="icon-btn" href={`mailto:${profile.email}`} aria-label="Email Hasini">
-              <Mail />
-            </a>
-            <a
-              className="icon-btn"
-              href={profile.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn profile"
-            >
-              <LinkedIn />
-            </a>
-            <a
-              className="icon-btn"
-              href={profile.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub profile"
-            >
-              <Github />
+              Download CV
             </a>
           </div>
         </div>
 
-        <div className="hero-portrait">
-          <span className="hero-halo" aria-hidden="true" />
-          <img src={profile.photo} alt={`Portrait of ${profile.name}`} />
+        <div className="home-image">
+          <div className="pfp-wrapper">
+            <img className="pfp" src={profile.photo} alt={`Portrait of ${profile.name}`} />
+          </div>
         </div>
       </div>
 
-      <a className="scroll-cue" href="#about" aria-label="Scroll to About">
-        <span className="scroll-mouse" aria-hidden="true">
-          <span className="scroll-wheel" />
+      <a className="scroll-indicator" href="#about" aria-label="Scroll to About">
+        <span className="mouse" aria-hidden="true">
+          <span className="mouse-wheel" />
         </span>
-        <span className="scroll-label">Scroll Down</span>
+        <span className="scroll-text">Scroll down</span>
       </a>
     </section>
   );
