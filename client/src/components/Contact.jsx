@@ -27,19 +27,26 @@ export default function Contact() {
     setErrors(next);
     if (Object.keys(next).length) return;
 
+    // WhatsApp renders *bold*, so the message arrives as a tidy labelled
+    // block rather than a wall of text.
     const lines = [
-      `Hi Hasini, I'm ${form.name.trim()}.`,
+      '*Portfolio enquiry*',
       '',
+      `*Name:*  ${form.name.trim()}`,
+      `*Email:*  ${form.email.trim() || '—'}`,
+      '',
+      '*Message*',
       form.message.trim(),
+      '',
+      '_Sent from your portfolio site_',
     ];
-    if (form.email.trim()) lines.push('', `You can reach me at ${form.email.trim()}`);
 
     const url = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
     window.open(url, '_blank', 'noopener');
   }
 
   const socials = [
-    { icon: WhatsApp, name: 'WhatsApp', href: `https://wa.me/${profile.whatsapp}` },
+    { icon: WhatsApp, name: 'WhatsApp', href: `https://wa.me/${profile.whatsapp}`, hint: profile.whatsappDisplay },
     { icon: Mail, name: 'Email', href: `mailto:${profile.email}` },
     { icon: LinkedIn, name: 'LinkedIn', href: profile.linkedin },
     { icon: Github, name: 'GitHub', href: profile.github },
@@ -53,7 +60,7 @@ export default function Contact() {
         <p className="section-lead">{contact.lead}</p>
 
         <div className="contact-socials reveal">
-          {socials.map(({ icon: Icon, name, href }) => (
+          {socials.map(({ icon: Icon, name, href, hint }) => (
             <a
               className="contact-social"
               key={name}
@@ -61,6 +68,7 @@ export default function Contact() {
               target={href.startsWith('http') ? '_blank' : undefined}
               rel="noreferrer"
               aria-label={name}
+              title={hint ?? name}
             >
               <Icon width={24} height={24} />
               <span className="label">{name}</span>

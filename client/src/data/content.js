@@ -10,15 +10,17 @@ export const profile = {
   initials: 'GH',
   photo: '/assets/hasini.png',
   // The typewriter cycles through these after "I build".
-  roles: ['full-stack apps.', 'cloud backends.', 'dashboards that decide.', 'things that ship.'],
+  roles: ['full-stack apps.', 'cloud backends.', 'dashboards people act on.', 'things that ship.'],
   role: 'Software Developer | AI & Analytics Student',
   tagline:
-    'Full-stack builder and data storyteller. Every project I have shipped was recognised for something — and one is now in the refinement stage with an industry client.',
+    'Full-stack builder and data storyteller — two hackathon podiums, an Outstanding Project Presentation, and a system now in the refinement stage with an industry client.',
   email: 'hasinirg7@gmail.com',
   whatsapp: '6587646580',
   whatsappDisplay: '+65 8764 6580',
   linkedin: 'https://www.linkedin.com/in/ginjala-h-31223b383',
   github: GITHUB,
+  // TODO: replace with the real CV — this currently opens the Hatch
+  // internship certificate, which is not what the button promises.
   cv: '/assets/docs/hatch-certificate.pdf',
 };
 
@@ -29,10 +31,10 @@ export const profile = {
 export const stats = {
   heading: 'Across every project I have shipped',
   items: [
-    { verb: 'Built', value: 6, lines: ['projects', 'all recognised'] },
+    { verb: 'Shipped', value: 6, lines: ['projects', 'five recognised'] },
     { verb: 'Placed in', value: 2, lines: ['hackathons', '2nd and 3rd'] },
     { verb: 'Won', value: 1, lines: ['Outstanding Project', 'Presentation'] },
-    { verb: 'Earned', value: 12, suffix: '+', lines: ['certifications', 'and counting'] },
+    { verb: 'Earned', value: 18, lines: ['certifications', '& awards'] },
   ],
 };
 
@@ -47,9 +49,9 @@ export const about = {
   heading: 'About Me',
   polaroids: [
     { src: '/assets/about/aws-hackathon.jpeg', caption: '2nd place\nAWS x NYP', tilt: -6 },
-    { src: '/assets/about/genlink-presentation.jpeg', caption: 'Presenting\nGenlink', tilt: 8 },
+    { src: '/assets/about/genlink-presentation.jpeg', caption: 'Outstanding\nProject Presentation', tilt: 8 },
     { src: '/assets/about/suss-2026.png', caption: 'Bronze\nSUSS 2026', tilt: -3 },
-    { src: '/assets/about/aws-hackathon-2.jpeg', caption: 'Hackathon\nweekend', tilt: 5 },
+    { src: '/assets/about/aws-hackathon-2.jpeg', caption: 'The team behind\nDeadlineIQ', tilt: 5 },
   ],
   paragraphs: [
     'I work across the stack and I am most at home in the unglamorous middle of it — designing the schema, writing the queries, wiring the API, and then finding out what breaks. That has meant relational modelling in MySQL and Postgres, REST services on Node and Flask, real-time state over Socket.IO, and an event-driven pipeline on AWS Lambda, DynamoDB and EventBridge where the interesting problem was idempotency rather than the UI. On the data side I work in Tableau, Power BI and DAX, and I care more about whether a chart changes a decision than whether it looks impressive.',
@@ -70,7 +72,7 @@ export const about = {
 
 export const whyMe = {
   heading: 'Why Me',
-  lead: 'Every project I have built has been recognised for something. Not one of them stopped at a passing grade.',
+  lead: 'Five of the six projects on this site were recognised — by competition judges, by lecturers, or by the client I am still working with. None of them stopped at the submission deadline.',
   items: [
     {
       project: 'Genlink',
@@ -82,7 +84,7 @@ export const whyMe = {
       project: 'EstateOps',
       award: 'Selected for client presentation',
       detail:
-        'Built with EM Services for Sembawang Town Council. Chosen from the cohort to present to the client, and now in talks about refining it further.',
+        'Built with EM Services for Sembawang Town Council. Chosen from the cohort to present to the client, and now in the refinement stage with them.',
     },
     {
       project: 'DeadlineIQ',
@@ -198,7 +200,7 @@ export const certifications = {
 
 export const journey = {
   heading: 'Hackathons',
-  lead: 'A record of what I did after losing, which turned out to matter more than the losing.',
+  lead: 'Two podiums in a year. Both of them started with a competition I lost, and what I did about it afterwards.',
   panels: [
     {
       chapter: '01',
@@ -234,7 +236,7 @@ export const journey = {
       href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       linkLabel: 'Open the dashboard',
       body:
-        'Back to the same competition with a year of practice behind me. Two hours, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
+        'Back to the same competition. Two hours, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
     },
     {
       chapter: '04',
@@ -274,7 +276,7 @@ export const projects = [
   {
     id: 'estateops',
     title: 'EstateOps',
-    award: 'Selected for client presentation — in talks with the client',
+    award: 'Selected for client presentation — now in refinement with the client',
     image: '/assets/projects/estateops.png',
     description:
       'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
@@ -304,7 +306,7 @@ export const projects = [
     award: 'Built on real government healthcare data',
     image: '/assets/projects/hospital-flow.jpeg',
     description:
-      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the emergency department actually jams. 65% of admissions come from patients over 65, and average wait times run 5.4 hours at general hospitals against 1.8 at ED.',
+      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the emergency department actually jams. 63% of admissions come from patients over 65, and average wait times run 5.4 hours at general hospitals against 1.8 at ED.',
     tags: ['Power BI', 'DAX', 'Data Modelling'],
     links: [],
     noLinkNote: 'Power BI build — no public repo',

@@ -20,6 +20,14 @@ function Counter({ to, suffix = '' }) {
         if (!entry.isIntersecting) return;
         io.disconnect();
 
+        // requestAnimationFrame is paused while the tab is in the background,
+        // which would leave the number stuck at zero. Snap to the final value
+        // instead, and only animate when the page is actually on screen.
+        if (document.hidden) {
+          setValue(to);
+          return;
+        }
+
         const duration = 1100;
         const start = performance.now();
         const tick = (now) => {
