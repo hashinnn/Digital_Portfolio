@@ -258,8 +258,7 @@ export const journey = {
 // `kind` picks the icon: github | link | youtube.
 // ---------------------------------------------------------------------------
 
-export const projects = [
-  {
+export const projects = [  {
     id: 'estateops',
     title: 'EstateOps',
     award: 'Selected for client presentation — now in refinement with the client',
@@ -270,20 +269,6 @@ export const projects = [
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
       { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
-    ],
-  },
-  {
-    id: 'deadlineiq',
-    title: 'DeadlineIQ',
-    award: '2nd place — AWS × NYP Cloud Hackathon 2026',
-    image: '/assets/projects/deadlineiq.png',
-    description:
-      'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit — urgency, stakes, effort, progress and clash. The AI writes the sentence explaining the ranking; it never picks the order.',
-    tags: ['AWS Serverless', 'Bedrock', 'Textract', 'React'],
-    links: [
-      { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
-      { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
-      { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7496768524195942400/' },
     ],
   },
   {
@@ -298,6 +283,20 @@ export const projects = [
       { kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' },
       { kind: 'link', href: 'https://genlink-283z.onrender.com/' },
       { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7432992530306088961/' },
+    ],
+  },
+  {
+    id: 'deadlineiq',
+    title: 'DeadlineIQ',
+    award: '2nd place — AWS × NYP Cloud Hackathon 2026',
+    image: '/assets/projects/deadlineiq.png',
+    description:
+      'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit — urgency, stakes, effort, progress and clash. The AI writes the sentence explaining the ranking; it never picks the order.',
+    tags: ['AWS Serverless', 'Bedrock', 'Textract', 'React'],
+    links: [
+      { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
+      { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
+      { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7496768524195942400/' },
     ],
   },
   {
