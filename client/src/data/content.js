@@ -30,7 +30,7 @@ export const stats = {
   items: [
     { verb: 'Built', value: 6, lines: ['projects', 'all recognised'] },
     { verb: 'Placed in', value: 2, lines: ['hackathons', '2nd and 3rd'] },
-    { verb: 'Won', value: 1, lines: ['Outstanding', 'Project Award'] },
+    { verb: 'Won', value: 1, lines: ['Outstanding Project', 'Presentation'] },
     { verb: 'Earned', value: 12, suffix: '+', lines: ['certifications', 'and counting'] },
   ],
 };
@@ -48,7 +48,7 @@ export const about = {
     { src: '/assets/about/portrait.png', caption: 'NYP ♡', tilt: -6 },
     { src: '/assets/about/aws-hackathon.png', caption: '2nd place\nAWS Hackathon', tilt: 8 },
     { src: '/assets/about/suss-2026.jpeg', caption: 'Bronze\nSUSS 2026', tilt: -3 },
-    { src: '/assets/about/nypsu-mural.jpg', caption: 'NYPSU site', tilt: 5 },
+    { src: '/assets/about/outstanding-presentation.png', caption: 'Outstanding\nProject Presentation', tilt: 5 },
   ],
   intro:
     'Year 2 Applied AI & Analytics student at Nanyang Polytechnic, and the kind who keeps working on a project after it has been marked. I build full-stack — React and Node on one side, Flask and MySQL on the other, AWS serverless when it earns its place — and what I care about is the distance between a working demo and something a person can actually rely on. I taught myself Tableau after losing a competition with it, went back the next year and placed; lose, rebuild, return is most of how I have learnt anything worth knowing. I am looking for software and data engineering roles where I can own a feature from the schema to the screen.',
@@ -80,7 +80,7 @@ export const whyMe = {
   items: [
     {
       project: 'Genlink',
-      award: 'Outstanding Project Award',
+      award: 'Outstanding Project Presentation',
       detail:
         'An intergenerational platform where a senior records a story in Mandarin and a teenager reads it in English, auto-translated across 132 languages.',
     },
@@ -212,6 +212,8 @@ export const journey = {
       verdict: 'No placing',
       image: '/assets/projects/suss2025-original.jpeg',
       caption: 'What I submitted — four separate views of one question',
+      href: 'https://public.tableau.com/views/SUSS_Competition_2025_Original/KindraSustainableRevenueDashboard?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+      linkLabel: 'Open the original dashboard',
       body:
         'My first real dashboarding competition. I had barely touched Tableau and it showed. I answered the brief with four correct, unconnected charts and left the judges to assemble the story themselves. I went home with nothing.',
     },
@@ -222,6 +224,8 @@ export const journey = {
       verdict: 'The rebuild',
       image: '/assets/projects/suss2025-improved.jpeg',
       caption: 'What I rebuilt — one finding, every chart supporting it',
+      href: 'https://public.tableau.com/views/SUSS_Competition_2025_Imporved/KindraSalesOverview?:language=en-GB&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+      linkLabel: 'Open the rebuilt dashboard',
       body:
         'I kept the dataset and kept going. I rebuilt the whole thing around a single finding — 87% of Kindra\'s sales come from one café and one category — and made every chart on the page support that one sentence. Nobody graded this version. It is the one that taught me the most.',
     },
@@ -232,6 +236,8 @@ export const journey = {
       verdict: '3rd place — Bronze',
       image: '/assets/projects/suss2026-dashboard.jpeg',
       caption: '10,869 orders, one day, one team',
+      href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+      linkLabel: 'Open the dashboard',
       body:
         'Back to the same competition with a year of practice behind me. One day, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
     },
@@ -242,6 +248,8 @@ export const journey = {
       verdict: '2nd place — PS-3',
       image: '/assets/projects/deadlineiq.png',
       caption: 'DeadlineIQ — fully deployed on AWS',
+      href: 'https://d3c6ivdcez723d.cloudfront.net/login',
+      linkLabel: 'Open the live app',
       body:
         'A different discipline entirely: cloud architecture rather than visual analytics. We took problem statement 3 and shipped DeadlineIQ — a deadline prioritiser running on Lambda, DynamoDB, EventBridge, Bedrock, Textract and SES. Second in our problem statement.',
     },
@@ -264,7 +272,8 @@ export const projects = [
     tags: ['AWS Serverless', 'Bedrock', 'Textract', 'React'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
-      { kind: 'link', href: 'https://nypxaws.netlify.app' },
+      { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
+      { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7496768524195942400/' },
     ],
   },
   {
@@ -275,25 +284,32 @@ export const projects = [
     description:
       'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
     tags: ['React', 'Node/Express', 'Supabase', 'Computer Vision'],
-    links: [{ kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' }],
+    links: [
+      { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
+      { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
+    ],
   },
   {
     id: 'genlink',
     title: 'Genlink',
-    award: 'Outstanding Project Award',
+    award: 'Outstanding Project Presentation',
     image: '/assets/projects/genlink.png',
     description:
       'Mdm Tan, 68, records a recipe in Mandarin. Jun Wei, 17, reads it in English. One post later they are playing chess every Sunday. Voice stories, translation across 132 languages, community events and a live-synced chess board.',
     tags: ['Flask', 'MySQL', 'Socket.IO', 'Google NMT'],
-    links: [{ kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' }],
+    links: [
+      { kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' },
+      { kind: 'link', href: 'https://genlink-283z.onrender.com/' },
+      { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7432992530306088961/' },
+    ],
   },
   {
     id: 'hospital-flow',
     title: 'Hospital Patient Flow Dashboard',
     award: 'Built on real government healthcare data',
-    image: '/assets/projects/hospital-flow.svg',
+    image: '/assets/projects/hospital-flow.jpeg',
     description:
-      'A Power BI dashboard analysing patient flow through public hospitals using open government healthcare datasets — admissions, length of stay and bed occupancy modelled in DAX so the pressure points show up before they become a queue.',
+      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the emergency department actually jams. 65% of admissions come from patients over 65, and average wait times run 5.4 hours at general hospitals against 1.8 at ED.',
     tags: ['Power BI', 'DAX', 'Data Modelling'],
     links: [],
     noLinkNote: 'Power BI build — no public repo',
@@ -306,7 +322,12 @@ export const projects = [
     description:
       'A one-day team build in Tableau answering how a social gifting platform can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
     tags: ['Tableau', 'EDA', 'Data Storytelling'],
-    links: [],
+    links: [
+      {
+        kind: 'tableau',
+        href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+      },
+    ],
   },
   {
     id: 'nypsu',
@@ -329,9 +350,10 @@ export const experience = [
     org: 'Hatch',
     orgNote: 'Youth digital skills organisation',
     bullets: [
-      'Designed 5 UX wireframes and 3 mood boards proposing navigation improvements for a platform serving 200+ underserved youth.',
-      'Contributed to the Q3 2022 website redesign, focused on accessibility and engagement.',
-      'Sat in on industry tech talks that pushed me from designing the thing toward building it.',
+      'Joined a small product team and shipped design work into a live platform used by 200+ underserved youth — 5 wireframes and 3 mood boards proposing a clearer navigation structure, several of which carried into the Q3 2022 redesign.',
+      'Worked to a real accessibility brief rather than a classroom one: legible type, reachable tap targets, and flows that hold up for users on cheap phones and patchy connections.',
+      'Presented my proposals to staff and defended the reasoning behind them — my first experience of designing for someone else\'s users instead of my own assumptions.',
+      'Left with two written references, and with the realisation that I wanted to build the thing rather than hand off the mockup. Everything I have shipped since has been full-stack.',
     ],
     docs: [
       { label: 'Internship certificate', href: '/assets/docs/hatch-certificate.pdf' },

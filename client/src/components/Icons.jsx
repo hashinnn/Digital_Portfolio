@@ -129,4 +129,12 @@ export const Certificate = (p) => (
   </svg>
 );
 
+export const Tableau = (p) => (
+  <svg {...base} {...p}>
+    <path d="M12 3v5M12 16v5M9.5 5.5h5M9.5 18.5h5" />
+    <path d="M3 12h5M16 12h5M5.5 9.5v5M18.5 9.5v5" />
+    <path d="M12 8.5v7M8.5 12h7" />
+  </svg>
+);
+
 export const icons = { trophy: Trophy, medal: Medal, star: Star, handshake: Handshake, spray: Spray };

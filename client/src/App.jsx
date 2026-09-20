@@ -35,7 +35,7 @@ export default function App() {
         <Skills />
         <Certifications onOpen={open} />
         <Journey onZoom={open} />
-        <Projects />
+        <Projects onZoom={open} />
         <Experience />
         <Contact />
       </main>

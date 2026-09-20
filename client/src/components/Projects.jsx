@@ -1,10 +1,15 @@
 import { projects } from '../data/content.js';
-import { ArrowUpRight, Github } from './Icons.jsx';
+import { ArrowUpRight, Github, LinkedIn, Tableau } from './Icons.jsx';
 
-const linkIcon = { github: Github, link: ArrowUpRight };
-const linkLabel = { github: 'View on GitHub', link: 'Open live site' };
+const linkIcon = { github: Github, link: ArrowUpRight, linkedin: LinkedIn, tableau: Tableau };
+const linkLabel = {
+  github: 'View on GitHub',
+  link: 'Open live site',
+  linkedin: 'Read the LinkedIn post',
+  tableau: 'Open on Tableau Public',
+};
 
-export default function Projects() {
+export default function Projects({ onZoom }) {
   return (
     <section className="section band" id="projects">
       <div className="shell">
@@ -14,7 +19,13 @@ export default function Projects() {
         <div className="projects-grid">
           {projects.map((project, i) => (
             <article className="project-card reveal" key={project.id} data-reveal-delay={i * 80}>
-              <img src={project.image} alt={project.title} loading="lazy" />
+              <button
+                className="project-shot"
+                onClick={() => onZoom({ img: project.image, title: `${project.title} — ${project.award}` })}
+                aria-label={`View the ${project.title} screenshot full size`}
+              >
+                <img src={project.image} alt={project.title} loading="lazy" />
+              </button>
 
               <div className="project-body">
                 <h3 className="project-title">{project.title}</h3>

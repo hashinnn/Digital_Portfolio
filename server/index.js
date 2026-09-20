@@ -85,16 +85,24 @@ app.get('/api/health', (_req, res) => res.json({ ok: true, uptime: process.uptim
 if (fs.existsSync(clientDist)) {
   app.use(
     express.static(clientDist, {
+      etag: true,
       setHeaders(res, filePath) {
-        // Hashed build assets are immutable; index.html must always revalidate.
-        if (filePath.includes(`${path.sep}assets${path.sep}`) && /\.[0-9a-f]{8}\./.test(filePath)) {
+        // Hashed build assets are immutable and safe to cache forever.
+        if (filePath.includes(`${path.sep}assets${path.sep}build${path.sep}`)) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+          return;
+        }
+        // index.html must never be cached: a stale copy would point at asset
+        // hashes that no longer exist after a deploy.
+        if (filePath.endsWith('index.html')) {
+          res.setHeader('Cache-Control', 'no-cache, must-revalidate');
         }
       },
     })
   );
   app.get('*', (req, res, next) => {
     if (req.path.startsWith('/api/')) return next();
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
     res.sendFile(path.join(clientDist, 'index.html'));
   });
 } else {
