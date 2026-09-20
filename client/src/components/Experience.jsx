@@ -5,10 +5,8 @@ export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="shell">
-        <header className="section-head reveal">
-          <span className="eyebrow">06 — Experience</span>
-          <h2 className="section-title">Where I&apos;ve Worked</h2>
-        </header>
+        <h2 className="section-title">Experience</h2>
+        <hr className="rule" />
 
         {experience.map((job) => (
           <article className="exp-card reveal" key={job.org}>

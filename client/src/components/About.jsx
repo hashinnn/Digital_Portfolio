@@ -4,37 +4,47 @@ export default function About() {
   return (
     <section className="section" id="about">
       <div className="shell">
-        <header className="section-head reveal">
-          <span className="eyebrow">01 — About</span>
-          <h2 className="section-title">{about.heading}</h2>
-        </header>
+        <h2 className="section-title">{about.heading}</h2>
+        <hr className="rule" />
 
-        <div className="about-grid">
-          <div className="about-body reveal">
-            {about.paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+        {/* Polaroid collage */}
+        <div className="polaroids reveal">
+          {about.polaroids.map((p) => (
+            <figure className="polaroid" key={p.src} style={{ '--tilt': `${p.tilt}deg` }}>
+              <img src={p.src} alt={p.caption.replace('\n', ' ')} loading="lazy" />
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
 
-          <aside className="about-side reveal" data-reveal-delay="120">
-            <dl className="fact-card">
-              {about.facts.map((fact) => (
-                <div className="fact-row" key={fact.label}>
-                  <dt>{fact.label}</dt>
-                  <dd>{fact.value}</dd>
-                </div>
+        {/* Alternating text / image blocks */}
+        {about.blocks.map((block, i) => (
+          <div className="about-block reveal" key={i}>
+            {block.layout === 'images-first' &&
+              block.images.map((img) => (
+                <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
               ))}
-            </dl>
 
-            <div className="extras-card">
-              <h3>Beyond the code</h3>
-              <ul>
-                {about.extras.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+            <div className="about-text">
+              {block.paragraphs.map((p, j) => (
+                <p key={j}>{p}</p>
+              ))}
             </div>
-          </aside>
+
+            {block.layout === 'text-first' &&
+              block.images.map((img) => (
+                <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
+              ))}
+          </div>
+        ))}
+
+        <p className="traits-label reveal">My lecturers and teammates say I am</p>
+        <div className="traits reveal">
+          {about.traits.map((trait) => (
+            <span className="trait" key={trait}>
+              {trait}
+            </span>
+          ))}
         </div>
       </div>
     </section>

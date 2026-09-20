@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { impact } from '../data/content.js';
+import { stats } from '../data/content.js';
 
 /** Counts 0 → target once the strip scrolls into view. */
-function Counter({ to, suffix }) {
+function Counter({ to, suffix = '' }) {
   const [value, setValue] = useState(0);
   const ref = useRef(null);
 
@@ -20,7 +20,7 @@ function Counter({ to, suffix }) {
         if (!entry.isIntersecting) return;
         io.disconnect();
 
-        const duration = 1200;
+        const duration = 1100;
         const start = performance.now();
         const tick = (now) => {
           const p = Math.min((now - start) / duration, 1);
@@ -39,24 +39,34 @@ function Counter({ to, suffix }) {
   }, [to]);
 
   return (
-    <div className="impact-num" ref={ref}>
+    <p className="stat-num" ref={ref}>
       {value}
       {suffix}
-    </div>
+    </p>
   );
 }
 
-export default function Impact() {
+export default function Stats() {
   return (
-    <section className="impact">
+    <section className="section band">
       <div className="shell">
-        <p className="impact-label">{impact.heading}</p>
-        <div className="impact-grid reveal">
-          {impact.stats.map((stat) => (
-            <div className="impact-cell" key={stat.label}>
-              <Counter to={stat.value} suffix={stat.suffix} />
-              <div className="impact-label-main">{stat.label}</div>
-              <div className="impact-sub">{stat.sub}</div>
+        <h2 className="section-title">{stats.heading}</h2>
+        <hr className="rule" />
+
+        <div className="stats-grid">
+          {stats.items.map((item, i) => (
+            <div className="stat reveal" key={item.verb} data-reveal-delay={i * 90}>
+              <p className="stat-verb">{item.verb}</p>
+              <div className="stat-row">
+                <Counter to={item.value} suffix={item.suffix} />
+                <div className="stat-lines">
+                  {item.lines.map((line) => (
+                    <p key={line} style={{ margin: 0 }}>
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>

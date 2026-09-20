@@ -22,7 +22,7 @@ export default function Nav() {
       <div className="shell">
         <div className="nav-inner">
           <a href="#top" className="nav-brand" onClick={() => setOpen(false)}>
-            &lt;{profile.initials} /&gt;
+            {profile.name}
           </a>
 
           <nav className="nav-links" aria-label="Sections">

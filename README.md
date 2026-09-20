@@ -10,8 +10,26 @@ Node service.
 | Layer    | Choice                                                    |
 | -------- | --------------------------------------------------------- |
 | Front end | React 18, Vite 6, hand-written CSS (no UI framework)       |
+| Icons     | Iconify (`@iconify/react`) for the tech logos, inline SVG for the rest |
 | Back end  | Node 20, Express 4, Nodemailer, express-rate-limit         |
 | Hosting   | Render — one web service serving the API and the built SPA |
+
+## Design
+
+Three colours, and nothing else:
+
+| Token | Value | Used for |
+| ----- | ----- | -------- |
+| `--navy` | `#0a0f2c` | page background |
+| `--navy-mid` | `#0d1235` | alternating section bands |
+| `--navy-light` | `#111640` | cards |
+| `--teal` | `#2dd4bf` | every accent, link and highlight |
+| `--white` | `#f0f0f0` | all text, dimmed with opacity rather than grey |
+
+There are no other hues in the stylesheet. Greys are white at reduced opacity, so the
+palette stays navy / teal / white throughout. The tech icons use Iconify's `simple-icons`
+set, which is monochrome and inherits the teal — swapping them for `logos:` equivalents
+would bring brand colours back in.
 
 ## Running locally
 
@@ -56,8 +74,24 @@ certifications, contact details — is in **`client/src/data/content.js`**. No J
 needed to add a project or reword a section.
 
 To add a project, append an object to the `projects` array and drop its thumbnail into
-`client/public/assets/projects/`. The `tags` you give it automatically appear as a filter
-button.
+`client/public/assets/projects/`. Give it a `links` entry of `{ kind: 'github', href }`
+and the card renders a GitHub icon under "See more on:".
+
+To swap a photo in the About collage, drop yours into `client/public/assets/about/` and
+point the `polaroids` entry at it — `tilt` is the rotation in degrees. The same goes for
+the two images beside each About paragraph block, and for the picture in each Hackathons
+storyboard panel.
+
+Certificates are a fanned deck; each entry takes an `img` (the poster shown on the card)
+and an `href` (the real document). Entries with no `img` get a generated navy cover and
+the viewer offers a link straight to the PDF.
+
+## A note on icons
+
+The tech icons load from the Iconify API at runtime rather than being bundled. They are
+cached by the browser after the first visit. If Iconify is ever unreachable, the skill
+bubbles render as empty circles with their text labels still readable — nothing else on
+the page is affected.
 
 ## Contact form
 

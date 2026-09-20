@@ -1,68 +1,53 @@
 import { useCallback, useState } from 'react';
-import { profile, projects } from './data/content.js';
+import { profile } from './data/content.js';
 import { useReveal } from './hooks/useReveal.js';
 
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
-import Impact from './components/Impact.jsx';
+import Stats from './components/Stats.jsx';
 import About from './components/About.jsx';
 import WhyMe from './components/WhyMe.jsx';
 import Skills from './components/Skills.jsx';
+import Certifications from './components/Certifications.jsx';
 import Journey from './components/Journey.jsx';
 import Projects from './components/Projects.jsx';
-import ProjectModal from './components/ProjectModal.jsx';
 import Experience from './components/Experience.jsx';
-import Certifications from './components/Certifications.jsx';
 import Contact from './components/Contact.jsx';
+import Lightbox from './components/Lightbox.jsx';
 
 export default function App() {
-  const [openId, setOpenId] = useState(null);
-  const [zoomed, setZoomed] = useState(null);
+  const [viewing, setViewing] = useState(null);
 
   useReveal();
 
-  const openProject = useCallback((id) => setOpenId(id), []);
-  const closeProject = useCallback(() => setOpenId(null), []);
-  const zoom = useCallback((src) => setZoomed(src), []);
-
-  const active = projects.find((p) => p.id === openId) ?? null;
+  const open = useCallback((item) => setViewing(item), []);
+  const close = useCallback(() => setViewing(null), []);
 
   return (
     <>
-      <div className="bg-wash" aria-hidden="true" />
-      <div className="bg-grid" aria-hidden="true" />
-
       <Nav />
 
       <main>
         <Hero />
-        <Impact />
+        <Stats />
         <About />
         <WhyMe />
         <Skills />
-        <Journey onOpenProject={openProject} onZoom={zoom} />
-        <Projects onOpenProject={openProject} />
+        <Certifications onOpen={open} />
+        <Journey onZoom={open} />
+        <Projects />
         <Experience />
-        <Certifications />
         <Contact />
       </main>
 
       <footer className="footer">
-        <div className="shell footer-inner">
-          <span>
-            Designed &amp; built by {profile.name} · React + Node · © {new Date().getFullYear()}
-          </span>
+        <div className="shell">
+          Built by {profile.name} with React + Node · © {new Date().getFullYear()} ·{' '}
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
 
-      {active && <ProjectModal project={active} onClose={closeProject} onZoom={zoom} />}
-
-      {zoomed && (
-        <div className="lightbox" onClick={() => setZoomed(null)} role="dialog" aria-modal="true">
-          <img src={zoomed} alt="Enlarged view" />
-        </div>
-      )}
+      {viewing && <Lightbox item={viewing} onClose={close} />}
     </>
   );
 }

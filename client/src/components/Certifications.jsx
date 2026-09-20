@@ -1,64 +1,102 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { certifications } from '../data/content.js';
-import { ArrowUpRight, Certificate } from './Icons.jsx';
+import { Certificate } from './Icons.jsx';
 
-export default function Certifications() {
-  const [tab, setTab] = useState(0);
-  const group = certifications.groups[tab];
+const CARD_W = 240;
+
+/** True once the viewport is too narrow for the fan to read well. */
+function useIsNarrow(breakpoint = 720) {
+  const [narrow, setNarrow] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < breakpoint
+  );
+  useEffect(() => {
+    const onResize = () => setNarrow(window.innerWidth < breakpoint);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [breakpoint]);
+  return narrow;
+}
+
+function CertFace({ cert }) {
+  return cert.img ? (
+    <img src={cert.img} alt={cert.title} loading="lazy" />
+  ) : (
+    <span className="cert-cover">
+      <Certificate width={28} height={28} />
+      <span>{cert.title}</span>
+    </span>
+  );
+}
+
+export default function Certifications({ onOpen }) {
+  const stackRef = useRef(null);
+  const [spacing, setSpacing] = useState(60);
+  const [hovered, setHovered] = useState(null);
+  const narrow = useIsNarrow();
+
+  const items = certifications.items;
+
+  // Fan the deck across whatever width we have, without letting the cards
+  // overlap so far that nothing is recognisable.
+  useEffect(() => {
+    if (narrow) return;
+    const measure = () => {
+      const width = stackRef.current?.offsetWidth ?? 0;
+      const usable = Math.max(width - CARD_W, 1);
+      setSpacing(Math.min(usable / Math.max(items.length - 1, 1), CARD_W - 30));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [items.length, narrow]);
 
   return (
-    <section className="section" id="certifications">
+    <section className="section band" id="certs">
       <div className="shell">
-        <header className="section-head reveal">
-          <span className="eyebrow">07 — Certifications</span>
-          <h2 className="section-title">{certifications.heading}</h2>
-          <p className="section-lead">
-            Every certificate below opens the real document — nothing here is a claim you have to
-            take on trust.
-          </p>
-        </header>
+        <h2 className="section-title">{certifications.heading}</h2>
+        <hr className="rule" />
+        <p className="cert-hint">
+          {narrow ? 'Swipe through, tap any to view.' : 'Hover to lift one out, click to view it in full.'}
+        </p>
 
-        <div className="cert-tabs reveal">
-          {certifications.groups.map((g, i) => (
-            <button
-              key={g.name}
-              className={`filter${tab === i ? ' is-active' : ''}`}
-              onClick={() => setTab(i)}
-            >
-              {g.name}
-            </button>
-          ))}
-        </div>
+        {narrow ? (
+          <div className="cert-rail">
+            {items.map((cert) => (
+              <button className="cert-card" key={cert.title} onClick={() => onOpen(cert)} title={cert.title}>
+                <CertFace cert={cert} />
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="cert-stack" ref={stackRef} onMouseLeave={() => setHovered(null)}>
+            {items.map((cert, i) => {
+              let transform = 'translateX(0) rotate(0deg) scale(1)';
+              if (hovered !== null) {
+                if (i < hovered) transform = 'translateX(-14px) rotate(-4deg)';
+                else if (i > hovered) transform = 'translateX(14px) rotate(4deg)';
+                else transform = 'translateY(-96px) scale(1.18)';
+              }
 
-        <div className="cert-grid">
-          {group.items.map((cert, i) => (
-            <a
-              className="cert-card reveal"
-              key={`${cert.title}-${cert.issuer}`}
-              data-reveal-delay={(i % 4) * 60}
-              href={cert.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="cert-thumb">
-                {cert.thumb || cert.href.match(/\.(png|jpe?g)$/i) ? (
-                  <img src={cert.thumb || cert.href} alt="" loading="lazy" />
-                ) : (
-                  <Certificate className="placeholder" width={34} height={34} />
-                )}
-              </div>
-
-              <div>
-                <div className="cert-title">{cert.title}</div>
-                <div className="cert-issuer">{cert.issuer}</div>
-              </div>
-
-              <span className="cert-view">
-                View <ArrowUpRight width={13} height={13} />
-              </span>
-            </a>
-          ))}
-        </div>
+              return (
+                <button
+                  className="cert-card"
+                  key={cert.title}
+                  title={cert.title}
+                  style={{
+                    left: `${i * spacing}px`,
+                    zIndex: hovered === i ? 50 : i,
+                    transform,
+                  }}
+                  onMouseEnter={() => setHovered(i)}
+                  onFocus={() => setHovered(i)}
+                  onClick={() => onOpen(cert)}
+                >
+                  <CertFace cert={cert} />
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

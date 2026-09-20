@@ -24,7 +24,9 @@ export function useReveal() {
           io.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      // A fractional threshold can never be reached by an element taller than
+      // the viewport, so gate on "any part visible" plus a bottom margin.
+      { threshold: 0, rootMargin: '0px 0px -80px 0px' }
     );
 
     nodes.forEach((n) => io.observe(n));

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { contact, profile } from '../data/content.js';
-import { ArrowRight, Github, LinkedIn, Mail, MapPin, Phone } from './Icons.jsx';
+import { ArrowRight, Github, LinkedIn, Mail, Phone } from './Icons.jsx';
 
 const empty = { name: '', email: '', message: '', company: '' };
 
@@ -44,114 +44,99 @@ export default function Contact() {
     }
   }
 
-  const channels = [
-    { icon: Mail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: 'Phone', value: profile.phone, href: `tel:+65${profile.phone.replace(/\s/g, '')}` },
-    { icon: LinkedIn, label: 'LinkedIn', value: 'Connect with me', href: profile.linkedin },
-    { icon: Github, label: 'GitHub', value: 'See the code', href: profile.github },
-    { icon: MapPin, label: 'Based in', value: profile.location, href: null },
+  const socials = [
+    { icon: Mail, label: profile.email, name: 'Email', href: `mailto:${profile.email}` },
+    { icon: Phone, label: profile.phone, name: 'Phone', href: `tel:+65${profile.phone.replace(/\s/g, '')}` },
+    { icon: LinkedIn, label: 'LinkedIn', name: 'LinkedIn', href: profile.linkedin },
+    { icon: Github, label: 'GitHub', name: 'GitHub', href: profile.github },
   ];
 
   return (
-    <section className="section" id="contact">
+    <section className="section band" id="contact">
       <div className="shell">
-        <header className="section-head reveal">
-          <span className="eyebrow">08 — Contact</span>
-          <h2 className="section-title">{contact.heading}</h2>
-          <p className="section-lead">{contact.lead}</p>
-        </header>
+        <h2 className="section-title">{contact.heading}</h2>
+        <hr className="rule" />
+        <p className="section-lead">{contact.lead}</p>
 
-        <div className="contact-grid">
-          <div className="contact-list reveal">
-            {channels.map(({ icon: Icon, label, value, href }) => {
-              const inner = (
-                <>
-                  <span className="contact-icon">
-                    <Icon width={18} height={18} />
-                  </span>
-                  <span className="contact-meta">
-                    <span className="label">{label}</span>
-                    <span className="value">{value}</span>
-                  </span>
-                </>
-              );
+        <div className="contact-socials reveal">
+          {socials.map(({ icon: Icon, label, name, href }) => (
+            <a
+              className="contact-social"
+              key={name}
+              href={href}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel="noreferrer"
+              aria-label={name}
+            >
+              <Icon width={24} height={24} />
+              <span className="label">{name}</span>
+            </a>
+          ))}
+        </div>
 
-              return href ? (
-                <a
-                  className="contact-item"
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noreferrer"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div className="contact-item" key={label}>
-                  {inner}
-                </div>
-              );
-            })}
+        <form className="form reveal" onSubmit={onSubmit} noValidate>
+          <div className={`field${errors.name ? ' has-error' : ''}`}>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              value={form.name}
+              onChange={set('name')}
+              placeholder="Your name"
+              autoComplete="name"
+              required
+            />
+            {errors.name && <span className="error">{errors.name}</span>}
           </div>
 
-          <form className="form reveal" data-reveal-delay="120" onSubmit={onSubmit} noValidate>
-            <div className={`field${errors.name ? ' has-error' : ''}`}>
-              <label htmlFor="name">Name</label>
-              <input
-                id="name"
-                value={form.name}
-                onChange={set('name')}
-                placeholder="Your name"
-                autoComplete="name"
-                required
-              />
-              {errors.name && <span className="error">{errors.name}</span>}
-            </div>
+          <div className={`field${errors.email ? ' has-error' : ''}`}>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={set('email')}
+              placeholder="you@company.com"
+              autoComplete="email"
+              required
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
 
-            <div className={`field${errors.email ? ' has-error' : ''}`}>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                value={form.email}
-                onChange={set('email')}
-                placeholder="you@company.com"
-                autoComplete="email"
-                required
-              />
-              {errors.email && <span className="error">{errors.email}</span>}
-            </div>
+          <div className={`field${errors.message ? ' has-error' : ''}`}>
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              value={form.message}
+              onChange={set('message')}
+              placeholder="Tell me about the role, the project, or just say hi."
+              required
+            />
+            {errors.message && <span className="error">{errors.message}</span>}
+          </div>
 
-            <div className={`field${errors.message ? ' has-error' : ''}`}>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                value={form.message}
-                onChange={set('message')}
-                placeholder="Tell me about the role, the project, or just say hi."
-                required
-              />
-              {errors.message && <span className="error">{errors.message}</span>}
-            </div>
+          {/* Honeypot — hidden from people, filled in by bots. */}
+          <div className="hp" aria-hidden="true">
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.company}
+              onChange={set('company')}
+            />
+          </div>
 
-            {/* Honeypot — hidden from people, filled in by bots. */}
-            <div className="hp" aria-hidden="true">
-              <label htmlFor="company">Company</label>
-              <input id="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={set('company')} />
-            </div>
+          {status && (
+            <p className={`form-status${status.ok ? '' : ' bad'}`} role="status">
+              {status.text}
+            </p>
+          )}
 
-            {status && (
-              <p className={`form-status ${status.ok ? 'ok' : 'bad'}`} role="status">
-                {status.text}
-              </p>
-            )}
-
-            <button className="btn btn-primary" type="submit" disabled={sending}>
-              {sending ? 'Sending…' : 'Send message'}
-              {!sending && <ArrowRight width={17} height={17} />}
-            </button>
-          </form>
-        </div>
+          <button className="btn btn-primary" type="submit" disabled={sending}>
+            {sending ? 'Sending…' : 'Send message'}
+            {!sending && <ArrowRight width={17} height={17} />}
+          </button>
+        </form>
       </div>
     </section>
   );

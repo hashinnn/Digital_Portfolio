@@ -1,61 +1,92 @@
 // ---------------------------------------------------------------------------
-// Every piece of copy on the site lives here. Edit this file, not the JSX.
+// Every piece of copy and every image path on the site lives here.
+// Edit this file, not the JSX.
 // ---------------------------------------------------------------------------
+
+export const GITHUB = 'https://github.com/hashinnn';
 
 export const profile = {
   name: 'Ginjala Hasini',
   initials: 'GH',
   photo: '/assets/hasini.png',
-  roles: [
-    'full-stack applications.',
-    'cloud-native backends.',
-    'dashboards people act on.',
-    'things that ship.',
-  ],
-  tagline: 'Software Developer · AI & Analytics @ Nanyang Polytechnic',
-  intro:
-    'I build full-stack products end to end — React front ends, Node and Flask back ends, AWS serverless pipelines — and I keep building them after the grade is in. Every project below was recognised for something, and one is still being refined with the client who commissioned it.',
-  location: 'Singapore',
+  // The typewriter cycles through these after "I build".
+  roles: ['full-stack apps.', 'cloud backends.', 'dashboards that decide.', 'things that ship.'],
+  role: 'Software Developer | AI & Analytics Student',
+  tagline:
+    'Full-stack builder and data storyteller. Every project I have shipped was recognised for something — and one is still being refined with the client who commissioned it.',
   email: 'hasinirg7@gmail.com',
   phone: '8764 6580',
-  linkedin: 'https://www.linkedin.com/in/ginjala-hasini/',
-  github: 'https://github.com/hasinirg',
+  linkedin: 'https://www.linkedin.com/in/ginjala-h-31223b383',
+  github: GITHUB,
   cv: '/assets/docs/hatch-certificate.pdf',
 };
 
-// Counters in the strip under the hero.
-export const impact = {
+// ---------------------------------------------------------------------------
+// Stats strip — recognition, never grades.
+// ---------------------------------------------------------------------------
+
+export const stats = {
   heading: 'Across every project I have shipped',
-  stats: [
-    { value: 6, suffix: '', label: 'projects shipped', sub: 'every one recognised' },
-    { value: 2, suffix: '', label: 'hackathon podiums', sub: '2nd place · 3rd place' },
-    { value: 1, suffix: '', label: 'live client engagement', sub: 'EM Services · Sembawang TC' },
-    { value: 12, suffix: '+', label: 'certifications earned', sub: 'AWS-adjacent, Python, data, UX' },
+  items: [
+    { verb: 'Built', value: 6, lines: ['projects', 'all recognised'] },
+    { verb: 'Placed in', value: 2, lines: ['hackathons', '2nd and 3rd'] },
+    { verb: 'Won', value: 1, lines: ['Outstanding', 'Project Award'] },
+    { verb: 'Earned', value: 12, suffix: '+', lines: ['certifications', 'and counting'] },
   ],
 };
+
+// ---------------------------------------------------------------------------
+// About — polaroid collage, then alternating text / image blocks.
+//
+// To swap a polaroid: drop your photo into client/public/assets/about/ and
+// point `src` at it. Portrait-ish crops work best. `tilt` is in degrees.
+// ---------------------------------------------------------------------------
 
 export const about = {
   heading: 'About Me',
-  paragraphs: [
-    'I am a Year 2 Applied AI & Analytics student at Nanyang Polytechnic who spends most of her time in a code editor. What I care about is the distance between a working demo and something a person can actually rely on — the error states, the empty states, the part where a real user opens it on a real phone.',
-    'That is usually where my projects get interesting. Genlink started as a coursework brief and turned into a platform that translates a grandmother\'s voice note into a teenager\'s language. A defect-reporting system for a town council started as an assignment and is now being refined with the client. A deadline tracker built in a hackathon weekend runs entirely on AWS serverless because I wanted to know whether I could.',
-    'I am looking for software and data engineering roles where I can keep doing exactly that: own a feature from the schema to the screen, and stay long enough to see whether it held up.',
+  polaroids: [
+    { src: '/assets/about/portrait.png', caption: 'NYP ♡', tilt: -6 },
+    { src: '/assets/about/aws-hackathon.png', caption: '2nd place\nAWS Hackathon', tilt: 8 },
+    { src: '/assets/about/suss-2026.jpeg', caption: 'Bronze\nSUSS 2026', tilt: -3 },
+    { src: '/assets/about/nypsu-mural.jpg', caption: 'NYPSU site', tilt: 5 },
   ],
-  facts: [
-    { label: 'Studying', value: 'Dip. Applied AI & Analytics, NYP' },
-    { label: 'Looking for', value: 'Software / data engineering internships' },
-    { label: 'Based in', value: 'Singapore' },
-    { label: 'Currently', value: 'Refining EstateOps with EM Services' },
+  blocks: [
+    {
+      layout: 'text-first',
+      paragraphs: [
+        'Year 2 Applied AI & Analytics student at Nanyang Polytechnic, and the kind of student who keeps working on a project after it has been marked.',
+        'I build full-stack — React and Node on one side, Flask and MySQL on the other, AWS serverless underneath when it earns its place. What I care about is the distance between a working demo and something a person can actually rely on: the error states, the empty states, the part where a real user opens it on a real phone.',
+      ],
+      images: [
+        { src: '/assets/about/estateops.png', alt: 'EstateOps defect management dashboard' },
+        { src: '/assets/about/genlink.png', alt: 'Genlink intergenerational platform' },
+      ],
+    },
+    {
+      layout: 'images-first',
+      paragraphs: [
+        'Genlink began as a coursework brief and became a platform that turns a grandmother\'s voice note into a teenager\'s language. A defect-reporting system for a town council began as an assignment and is now being refined with the client. A deadline tracker built over a hackathon weekend runs entirely on AWS serverless, because I wanted to know whether I could.',
+        'I taught myself Tableau after losing a competition with it, went back the next year and placed. That pattern — lose, go away, rebuild, return — is most of how I have learnt anything worth knowing.',
+        'I am looking for software and data engineering roles where I can own a feature from the schema to the screen, and stay long enough to find out whether it held up.',
+      ],
+      images: [
+        { src: '/assets/about/suss-2026.jpeg', alt: 'SUSS 2026 social gifting dashboard' },
+        { src: '/assets/about/aws-hackathon.png', alt: 'DeadlineIQ, AWS x NYP Cloud Hackathon' },
+      ],
+    },
   ],
-  extras: [
-    'NYP Cloud Computing — Sub-Committee Member',
-    'NYP Indian Cultural Group — Dancer',
-    'NYAA Bronze Award · Gold in progress (80+ service hours)',
-    'Art Club EXCO for 3 years — work exhibited at Sengkang National Library',
+  traits: [
+    'Ships Past The Grade',
+    'Self-Taught Fast',
+    'Client-Facing',
+    'Actually Finishes Things',
   ],
 };
 
-// "Why me" — the recognition record.
+// ---------------------------------------------------------------------------
+// Why Me — the recognition record.
+// ---------------------------------------------------------------------------
+
 export const whyMe = {
   heading: 'Why Me',
   lead: 'Every project I have built has been recognised for something. Not one of them stopped at a passing grade.',
@@ -64,266 +95,243 @@ export const whyMe = {
       project: 'Genlink',
       award: 'Outstanding Project Award',
       detail:
-        'Recognised for the presentation and the idea behind it — an intergenerational platform where a senior records a story in Mandarin and a teenager reads it in English, auto-translated across 132 languages.',
-      accent: 'amber',
-      icon: 'star',
+        'An intergenerational platform where a senior records a story in Mandarin and a teenager reads it in English, auto-translated across 132 languages.',
     },
     {
-      project: 'EstateOps (FSAD)',
+      project: 'EstateOps',
       award: 'Selected for client presentation',
       detail:
-        'Built with EM Services for Sembawang Town Council. Chosen out of the cohort to present to the client, and now in active talks with them about refining the system further.',
-      accent: 'blue',
-      icon: 'handshake',
+        'Built with EM Services for Sembawang Town Council. Chosen from the cohort to present to the client, and now in talks about refining it further.',
     },
     {
       project: 'DeadlineIQ',
-      award: '2nd place · AWS × NYP Cloud Hackathon 2026',
+      award: '2nd place — AWS × NYP Cloud Hackathon 2026',
       detail:
-        'Second in problem statement PS-3. A five-factor priority engine for student deadlines, fully deployed on AWS — where the AI writes the explanation but never picks the order.',
-      accent: 'teal',
-      icon: 'trophy',
+        'Second in problem statement PS-3. A five-factor priority engine on AWS, where the AI writes the explanation but never picks the order.',
     },
     {
       project: 'Social Gifting Insights',
-      award: '3rd place · SUSS Analytics & Visualisation Challenge 2026',
+      award: '3rd place — SUSS Analytics & Visualisation 2026',
       detail:
         'Bronze, one year after walking away from the same competition with nothing. 10,869 orders analysed in Tableau in a single day.',
-      accent: 'bronze',
-      icon: 'medal',
     },
     {
-      project: 'NYP Students\' Union',
-      award: 'A grade · commended for visual design',
+      project: "NYP Students' Union",
+      award: 'A grade — commended for visual design',
       detail:
-        'A front-end CCA site that leans all the way into street-art styling instead of playing it safe — graffiti typography, bold colour, an embedded live Instagram feed.',
-      accent: 'violet',
-      icon: 'spray',
+        'A CCA site that leans all the way into street-art styling instead of playing it safe: graffiti typography, bold colour, a live Instagram feed.',
     },
   ],
 };
 
-// The hackathon narrative — order matters, this reads top to bottom.
-export const journey = {
-  heading: 'Hackathons',
-  lead: 'A record of what I did after losing, which turned out to matter more than the losing.',
-  steps: [
-    {
-      year: '2025',
-      title: 'SUSS Analytics & Visualisation Challenge',
-      verdict: 'No placing',
-      verdictTone: 'neutral',
-      body:
-        'My first real dashboarding competition. I had barely touched Tableau and it showed — I answered the brief with four separate views of the same question and left the judge to assemble the story themselves. I did not win anything.',
-      projectId: 'suss2025',
-    },
-    {
-      year: '2025 — after',
-      title: 'Went home and learnt Tableau properly',
-      verdict: 'The rebuild',
-      verdictTone: 'work',
-      body:
-        'I kept the dataset and kept going. I rebuilt the whole thing around a single finding — 87% of Kindra\'s sales come from one café and one category — and let every chart on the page support that one sentence. Nobody graded this version. It is the one that taught me the most.',
-      projectId: 'suss2025',
-      compare: true,
-    },
-    {
-      year: '2026',
-      title: 'SUSS Analytics & Visualisation Challenge',
-      verdict: '3rd place · Bronze',
-      verdictTone: 'bronze',
-      body:
-        'Back with the same competition and a year of practice behind me. One day, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
-      projectId: 'suss2026',
-    },
-    {
-      year: '2026',
-      title: 'AWS × NYP Cloud Hackathon',
-      verdict: '2nd place · PS-3',
-      verdictTone: 'silver',
-      body:
-        'A different discipline entirely — cloud architecture rather than visual analytics. We took problem statement 3 and shipped DeadlineIQ: a deadline prioritiser running on Lambda, DynamoDB, EventBridge, Bedrock, Textract and SES. Second in our problem statement.',
-      projectId: 'deadlineiq',
-    },
-  ],
-};
+// ---------------------------------------------------------------------------
+// Skills — icons bounce around inside each basket. `icon` values are Iconify
+// names; see https://icon-sets.iconify.design to find more.
+// ---------------------------------------------------------------------------
 
 export const skills = {
   heading: 'Skills & Technologies',
-  groups: [
+  baskets: [
     {
       name: 'Languages',
-      items: ['Python', 'JavaScript', 'SQL', 'HTML', 'CSS'],
+      items: [
+        { icon: 'simple-icons:python', label: 'Python' },
+        { icon: 'simple-icons:javascript', label: 'JavaScript' },
+        { icon: 'simple-icons:html5', label: 'HTML' },
+        { icon: 'simple-icons:css3', label: 'CSS' },
+        { icon: 'simple-icons:mysql', label: 'SQL' },
+      ],
     },
     {
-      name: 'Front End',
-      items: ['React', 'Vite', 'Bootstrap', 'Jinja', 'Socket.IO'],
+      name: 'Web & App Development',
+      items: [
+        { icon: 'simple-icons:react', label: 'React' },
+        { icon: 'simple-icons:vite', label: 'Vite' },
+        { icon: 'simple-icons:nodedotjs', label: 'Node.js' },
+        { icon: 'simple-icons:express', label: 'Express' },
+        { icon: 'simple-icons:flask', label: 'Flask' },
+        { icon: 'simple-icons:bootstrap', label: 'Bootstrap' },
+        { icon: 'simple-icons:socketdotio', label: 'Socket.IO' },
+      ],
     },
     {
-      name: 'Back End & Data',
-      items: ['Node.js', 'Express', 'Flask', 'MySQL', 'PostgreSQL', 'Supabase', 'Snowflake'],
-    },
-    {
-      name: 'Cloud & AWS',
-      items: ['Lambda', 'DynamoDB', 'EventBridge', 'Bedrock', 'Textract', 'SES'],
+      name: 'Cloud & Data',
+      items: [
+        { icon: 'simple-icons:awslambda', label: 'Lambda' },
+        { icon: 'simple-icons:amazondynamodb', label: 'DynamoDB' },
+        { icon: 'simple-icons:amazonwebservices', label: 'EventBridge' },
+        { icon: 'simple-icons:amazonwebservices', label: 'Textract' },
+        { icon: 'simple-icons:supabase', label: 'Supabase' },
+        { icon: 'simple-icons:postgresql', label: 'PostgreSQL' },
+        { icon: 'simple-icons:snowflake', label: 'Snowflake' },
+      ],
     },
     {
       name: 'Analytics & AI',
-      items: ['Tableau', 'Power BI', 'DAX', 'Roboflow', 'OpenAI API', 'Pandas'],
-    },
-    {
-      name: 'Tooling & Deploy',
-      items: ['Git', 'GitHub', 'Render', 'Netlify', 'Railway', 'Figma'],
+      items: [
+        { icon: 'simple-icons:tableau', label: 'Tableau' },
+        { icon: 'simple-icons:powerbi', label: 'Power BI' },
+        { icon: 'simple-icons:pandas', label: 'Pandas' },
+        { icon: 'simple-icons:roboflow', label: 'Roboflow' },
+        { icon: 'simple-icons:openai', label: 'OpenAI' },
+        { icon: 'simple-icons:git', label: 'Git' },
+        { icon: 'simple-icons:github', label: 'GitHub' },
+      ],
     },
   ],
 };
+
+// ---------------------------------------------------------------------------
+// Certifications — fanned deck. Images only (PDFs get a poster image where
+// one exists, otherwise the deck shows a generated cover).
+// ---------------------------------------------------------------------------
+
+export const certifications = {
+  heading: 'Certifications',
+  items: [
+    { title: 'SnowPro Associate — Snowflake', img: '/assets/certs/snowpro-associate.png', href: '/assets/certs/snowpro-associate.pdf' },
+    { title: 'PCEP — Certified Entry-Level Python Programmer', img: '/assets/certs/pcep-python.png', href: '/assets/certs/pcep-python.pdf' },
+    { title: 'Web Development Fundamentals — IBM', img: '/assets/certs/ibm-web-dev.png', href: '/assets/certs/ibm-web-dev.pdf' },
+    { title: 'UX Design Fundamentals — IBM', img: '/assets/certs/ibm-ux-design.png', href: '/assets/certs/ibm-ux-design.pdf' },
+    { title: 'AI Fluency — Anthropic', href: '/assets/certs/anthropic-ai-fluency.pdf' },
+    { title: 'Literacy in AI — AI Singapore', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
+    { title: 'Web Development Bootcamp — Ipasmo', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
+    { title: 'Analytics & Visualisation Challenge 2025 — SUSS', href: '/assets/certs/suss-avc-2025.pdf' },
+    { title: 'Edusave Merit Award 2024', img: '/assets/certs/edusave-edusavemerit2024.jpeg', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
+    { title: 'Academic Achievement 2024', img: '/assets/certs/edusave-edusaveachievement2024.jpeg', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
+    { title: 'Academic Achievement 2023', img: '/assets/certs/edusave-edusaveachievement2023.jpeg', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
+    { title: 'Good Progress Award 2023', img: '/assets/certs/edusave-edusaveprogress2023.jpeg', href: '/assets/certs/edusave-edusaveprogress2023.jpeg' },
+    { title: 'SINDA Sustained Improvement — Science 2023', img: '/assets/certs/edusave-sinda2023.jpeg', href: '/assets/certs/edusave-sinda2023.jpeg' },
+    { title: 'Edusave Scholarship 2021', img: '/assets/certs/edusave-edusavescholarship2021.jpeg', href: '/assets/certs/edusave-edusavescholarship2021.jpeg' },
+    { title: 'Academic Achievement 2020', img: '/assets/certs/edusave-edusaveachievement2020.jpeg', href: '/assets/certs/edusave-edusaveachievement2020.jpeg' },
+    { title: 'Good Progress Award 2020', img: '/assets/certs/edusave-edusaveprogress2020.jpeg', href: '/assets/certs/edusave-edusaveprogress2020.jpeg' },
+    { title: 'International Research Programme — Chengdu', img: '/assets/certs/edusave-internationalresearch.jpeg', href: '/assets/certs/edusave-internationalresearch.jpeg' },
+  ],
+};
+
+// ---------------------------------------------------------------------------
+// Hackathons — a storyboard. Each panel has its own picture.
+// ---------------------------------------------------------------------------
+
+export const journey = {
+  heading: 'Hackathons',
+  lead: 'A record of what I did after losing, which turned out to matter more than the losing.',
+  panels: [
+    {
+      chapter: '01',
+      year: '2025',
+      title: 'SUSS Analytics & Visualisation Challenge',
+      verdict: 'No placing',
+      image: '/assets/projects/suss2025-original.jpeg',
+      caption: 'What I submitted — four separate views of one question',
+      body:
+        'My first real dashboarding competition. I had barely touched Tableau and it showed. I answered the brief with four correct, unconnected charts and left the judges to assemble the story themselves. I went home with nothing.',
+    },
+    {
+      chapter: '02',
+      year: 'After',
+      title: 'Went home and learnt Tableau properly',
+      verdict: 'The rebuild',
+      image: '/assets/projects/suss2025-improved.jpeg',
+      caption: 'What I rebuilt — one finding, every chart supporting it',
+      body:
+        'I kept the dataset and kept going. I rebuilt the whole thing around a single finding — 87% of Kindra\'s sales come from one café and one category — and made every chart on the page support that one sentence. Nobody graded this version. It is the one that taught me the most.',
+    },
+    {
+      chapter: '03',
+      year: '2026',
+      title: 'SUSS Analytics & Visualisation Challenge',
+      verdict: '3rd place — Bronze',
+      image: '/assets/projects/suss2026-dashboard.jpeg',
+      caption: '10,869 orders, one day, one team',
+      body:
+        'Back to the same competition with a year of practice behind me. One day, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
+    },
+    {
+      chapter: '04',
+      year: '2026',
+      title: 'AWS × NYP Cloud Hackathon',
+      verdict: '2nd place — PS-3',
+      image: '/assets/projects/deadlineiq.png',
+      caption: 'DeadlineIQ — fully deployed on AWS',
+      body:
+        'A different discipline entirely: cloud architecture rather than visual analytics. We took problem statement 3 and shipped DeadlineIQ — a deadline prioritiser running on Lambda, DynamoDB, EventBridge, Bedrock, Textract and SES. Second in our problem statement.',
+    },
+  ],
+};
+
+// ---------------------------------------------------------------------------
+// Projects — cards only, no expand. Links render as icon buttons.
+// `kind` picks the icon: github | link | youtube.
+// ---------------------------------------------------------------------------
 
 export const projects = [
   {
     id: 'deadlineiq',
     title: 'DeadlineIQ',
-    subtitle: 'Five-factor priority engine for student deadlines',
-    badge: '2nd place · AWS × NYP Cloud Hackathon 2026',
-    badgeTone: 'silver',
-    year: '2026',
+    award: '2nd place — AWS × NYP Cloud Hackathon 2026',
     image: '/assets/projects/deadlineiq.png',
-    summary:
-      'Ranks every assignment a student is carrying using arithmetic they can audit — urgency, stakes, effort, progress and clash. The AI writes the sentence explaining the ranking; it never picks the order.',
-    problem:
-      'Students juggle overlapping deadlines and rank them by anxiety rather than by consequence. Existing trackers either list dates or hand the whole decision to a language model you cannot question.',
-    approach: [
-      'A deterministic five-factor scoring engine — urgency, stakes, effort, progress and clash — so any ranking can be recomputed by hand.',
-      'Amazon Bedrock generates the human explanation for each position, strictly downstream of the score.',
-      'Textract parses uploaded assignment briefs into structured deadline records.',
-      'EventBridge schedules the weekly re-rank; SES delivers the digest; DynamoDB holds state; Lambda runs all of it.',
+    description:
+      'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit — urgency, stakes, effort, progress and clash. The AI writes the sentence explaining the ranking; it never picks the order.',
+    tags: ['AWS Serverless', 'Bedrock', 'Textract', 'React'],
+    links: [
+      { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
+      { kind: 'link', href: 'https://nypxaws.netlify.app' },
     ],
-    outcome:
-      'Fully deployed on AWS and placed 2nd in problem statement PS-3 at the AWS × NYP Cloud Hackathon 2026.',
-    stack: ['AWS Lambda', 'DynamoDB', 'EventBridge', 'Bedrock', 'Textract', 'SES', 'React'],
-    tags: ['Cloud', 'Serverless', 'AI'],
-    links: [{ label: 'Live site', href: 'https://nypxaws.netlify.app' }],
   },
   {
     id: 'estateops',
     title: 'EstateOps',
-    subtitle: 'Estate defect & lift inspection management system',
-    badge: 'Selected for client presentation · in talks with client',
-    badgeTone: 'blue',
-    year: '2025',
+    award: 'Selected for client presentation — in talks with the client',
     image: '/assets/projects/estateops.png',
-    summary:
-      'A full-stack operations platform for estate maintenance, built with EM Services for Sembawang Town Council. Defect reporting, lift inspections and estate health in one place, with computer vision doing the first pass on every photo.',
-    problem:
-      'Estate defects arrive as photos and phone calls, lift inspections live in spreadsheets, and nobody can see whether response times are improving. The town council needed one system where a reported crack becomes a tracked, prioritised job.',
-    approach: [
-      'Computer vision via Roboflow classifies defects — cracks, water leakage, floor damage — straight from an uploaded photo with a confidence score and location.',
-      'A lift inspection module tracks faults, schedules and completion status across every block.',
-      'An analytics dashboard surfaces defect trends, category breakdowns and average response time against the previous period.',
-      'Socket.IO pushes live updates so office and ground staff see the same board; OpenAI drafts the risk summary in generated reports.',
-    ],
-    outcome:
-      'Selected out of the cohort to present to the client, and currently in discussion with EM Services about refining the system further.',
-    stack: ['React', 'Vite', 'Node.js', 'Express', 'Supabase', 'Socket.IO', 'Roboflow', 'OpenAI'],
-    tags: ['Full-stack', 'Computer Vision', 'Real-time'],
-    links: [],
+    description:
+      'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
+    tags: ['React', 'Node/Express', 'Supabase', 'Computer Vision'],
+    links: [{ kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' }],
   },
   {
     id: 'genlink',
     title: 'Genlink',
-    subtitle: 'Bridging generations through shared interests',
-    badge: 'Outstanding Project Award',
-    badgeTone: 'amber',
-    year: '2025',
+    award: 'Outstanding Project Award',
     image: '/assets/projects/genlink.png',
-    summary:
-      'Mdm Tan, 68, records a recipe in Mandarin. Jun Wei, 17, reads it in English. One post later they are playing chess every Sunday. Genlink is the platform in between.',
-    problem:
-      'Singapore has an ageing population and a generation of teenagers three floors away who will never meet them. The barrier is rarely willingness — it is language, and not knowing what you have in common.',
-    approach: [
-      'Voice stories: seniors record in whatever language they are comfortable in, with audio upload handled server-side.',
-      'Google Neural Machine Translation renders every post into the reader\'s language across 132 languages.',
-      'Interest matching connects across three age bands — youth 13–20, adult 21–59, senior 60+.',
-      'Admin-approved community events, Socket.IO chat, and a live-synced chess board for the pairs who keep meeting.',
-    ],
-    outcome:
-      'Awarded the Outstanding Project Award for the build and its presentation at NYP.',
-    stack: ['Flask', 'Python', 'MySQL', 'Socket.IO', 'Google NMT', 'OAuth 2.0', 'Bootstrap'],
-    tags: ['Full-stack', 'Social Impact', 'Real-time'],
-    links: [],
+    description:
+      'Mdm Tan, 68, records a recipe in Mandarin. Jun Wei, 17, reads it in English. One post later they are playing chess every Sunday. Voice stories, translation across 132 languages, community events and a live-synced chess board.',
+    tags: ['Flask', 'MySQL', 'Socket.IO', 'Google NMT'],
+    links: [{ kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' }],
+  },
+  {
+    id: 'calorie-bot',
+    title: 'Telegram Calorie Bot',
+    award: 'Self-directed — running 24/7',
+    image: '/assets/projects/calorie-bot.svg',
+    description:
+      'A Telegram bot that estimates calories and macros from a photo of a meal using Claude\'s vision API. Built for my own meal tracking rather than for a grade, and deployed on Render where it has been running ever since.',
+    tags: ['Node.js', 'Claude Vision API', 'Telegram API', 'Render'],
+    links: [{ kind: 'github', href: 'https://github.com/hashinnn/telegram_calorie_bot' }],
   },
   {
     id: 'suss2026',
     title: 'Social Gifting Sales Insights',
-    subtitle: 'What sells, to whom, and when',
-    badge: '3rd place · SUSS Analytics & Visualisation Challenge 2026',
-    badgeTone: 'bronze',
-    year: '2026',
+    award: '3rd place — SUSS Analytics & Visualisation 2026',
     image: '/assets/projects/suss2026.png',
-    gallery: ['/assets/projects/suss2026-dashboard.jpeg'],
-    summary:
-      'A one-day team build in Tableau answering how a social gifting platform can grow income for its crafters — 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
-    problem:
-      'Crafters on the platform had five years of sales data and no view of which products, colours, channels or seasons actually earned them money.',
-    approach: [
-      'Built the dashboard around a single question the judges could hold: what sells, to whom, and when.',
-      'Vendor concentration analysis showing how steeply orders fall off after the top handful of sellers.',
-      'Channel split across Co, Booth and Shopee, plus returning-customer trend by year.',
-      'Colour and variant analysis — black outsells every other variant by a wide margin.',
-    ],
-    outcome: 'Third place. My second attempt at this competition, one year after placing nowhere.',
-    stack: ['Tableau', 'Data Storytelling', 'EDA'],
-    tags: ['Analytics', 'Tableau'],
-    links: [],
-  },
-  {
-    id: 'suss2025',
-    title: 'Kindra Dashboard Redesign',
-    subtitle: 'The one I lost, then rebuilt',
-    badge: 'No placing — then rebuilt from scratch',
-    badgeTone: 'neutral',
-    year: '2025',
-    image: '/assets/projects/suss2025.png',
-    gallery: ['/assets/projects/suss2025-original.jpeg', '/assets/projects/suss2025-improved.jpeg'],
-    summary:
-      'My first dashboarding competition, and the clearest lesson I have had. The submitted version explored the question from four angles. The version I built afterwards answers it in one sentence.',
-    problem:
-      'Kindra, a social enterprise café, wanted to know how to turn heavy reliance on seasonal product sales into sustainable revenue. I had the right data and no idea how to make a dashboard argue a point.',
-    approach: [
-      'Submitted version: four independent views — profit vs sales, vendor dynamics, a seasonality heatmap and monthly volume — each correct, none of them leading anywhere.',
-      'Afterwards I went back to the same dataset with the Tableau I had taught myself since.',
-      'Rebuilt version opens with the finding — 87% of sales come from one café and one category — and every chart below it exists to support that claim.',
-      'Reordered by net items sold, added a top-N product cut, and dropped everything that did not serve the headline.',
-    ],
-    outcome:
-      'Nothing at the competition. Directly responsible for the bronze the following year.',
-    stack: ['Tableau', 'Data Storytelling'],
-    tags: ['Analytics', 'Tableau'],
+    description:
+      'A one-day team build in Tableau answering how a social gifting platform can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
+    tags: ['Tableau', 'EDA', 'Data Storytelling'],
     links: [],
   },
   {
     id: 'nypsu',
-    title: 'NYP Students\' Union',
-    subtitle: 'CCA website with a street-art identity',
-    badge: 'A grade · commended for visual design',
-    badgeTone: 'violet',
-    year: '2024',
+    title: "NYP Students' Union",
+    award: 'A grade — commended for visual design',
     image: '/assets/projects/nypsu.png',
-    summary:
-      'A front-end site for the NYP Students\' Union that refuses to look like a school microsite — graffiti typography, full-bleed mural photography and a live Instagram feed doing the heavy lifting.',
-    problem:
-      'Student union sites get ignored because they look institutional. The brief was a site students would actually open, for a body whose whole identity is student energy.',
-    approach: [
-      'Built the visual language around street art — mural hero imagery, heavy display type, high-contrast colour.',
-      'Embedded the union\'s live Instagram feed so the site stays current without anyone maintaining it.',
-      'Responsive layout and scroll-driven UI built on vanilla JavaScript and Bootstrap.',
-    ],
-    outcome:
-      'Graded A, with the visual direction singled out for embracing the CCA\'s street-style identity rather than neutralising it.',
-    stack: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-    tags: ['Front-end', 'Design'],
-    links: [],
+    description:
+      'A front-end CCA site that refuses to look like a school microsite — graffiti typography, full-bleed mural photography and a live Instagram feed. Static multi-page build with no frameworks or libraries.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    links: [{ kind: 'github', href: 'https://github.com/hashinnn/nypsu_site_concept' }],
   },
 ];
+
+// ---------------------------------------------------------------------------
 
 export const experience = [
   {
@@ -334,7 +342,7 @@ export const experience = [
     bullets: [
       'Designed 5 UX wireframes and 3 mood boards proposing navigation improvements for a platform serving 200+ underserved youth.',
       'Contributed to the Q3 2022 website redesign, focused on accessibility and engagement.',
-      'Sat in on industry tech talks that pushed me from design toward building the thing myself.',
+      'Sat in on industry tech talks that pushed me from designing the thing toward building it.',
     ],
     docs: [
       { label: 'Internship certificate', href: '/assets/docs/hatch-certificate.pdf' },
@@ -344,91 +352,18 @@ export const experience = [
   },
 ];
 
-export const certifications = {
-  heading: 'Certifications',
-  groups: [
-    {
-      name: 'Technical',
-      items: [
-        {
-          title: 'SnowPro Associate',
-          issuer: 'Snowflake',
-          href: '/assets/certs/snowpro-associate.pdf',
-          thumb: '/assets/certs/snowpro-associate.png',
-        },
-        {
-          title: 'PCEP — Certified Entry-Level Python Programmer',
-          issuer: 'Python Institute',
-          href: '/assets/certs/pcep-python.pdf',
-          thumb: '/assets/certs/pcep-python.png',
-        },
-        {
-          title: 'Web Development Fundamentals',
-          issuer: 'IBM SkillsBuild',
-          href: '/assets/certs/ibm-web-dev.pdf',
-          thumb: '/assets/certs/ibm-web-dev.png',
-        },
-        {
-          title: 'User Experience Design Fundamentals',
-          issuer: 'IBM SkillsBuild',
-          href: '/assets/certs/ibm-ux-design.pdf',
-          thumb: '/assets/certs/ibm-ux-design.png',
-        },
-        {
-          title: 'AI Fluency: Framework & Foundations',
-          issuer: 'Anthropic',
-          href: '/assets/certs/anthropic-ai-fluency.pdf',
-        },
-        {
-          title: 'Literacy in AI',
-          issuer: 'AI Singapore — AI4I®',
-          href: '/assets/certs/ai4i-literacy-in-ai.pdf',
-        },
-        {
-          title: 'Web Development Bootcamp',
-          issuer: 'Ipasmo Technologies',
-          href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf',
-        },
-        {
-          title: 'Analytics & Visualisation Challenge 2025',
-          issuer: 'Singapore University of Social Sciences',
-          href: '/assets/certs/suss-avc-2025.pdf',
-        },
-      ],
-    },
-    {
-      name: 'Academic awards',
-      items: [
-        { title: 'Edusave Merit Award', issuer: '2024', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
-        { title: 'Academic Achievement', issuer: '2024', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
-        { title: 'Academic Achievement', issuer: '2023', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
-        { title: 'Good Progress Award', issuer: '2023', href: '/assets/certs/edusave-edusaveprogress2023.jpeg' },
-        { title: 'SINDA Sustained Improvement — Science', issuer: '2023', href: '/assets/certs/edusave-sinda2023.jpeg' },
-        { title: 'Edusave Scholarship', issuer: '2021', href: '/assets/certs/edusave-edusavescholarship2021.jpeg' },
-        { title: 'Academic Achievement', issuer: '2020', href: '/assets/certs/edusave-edusaveachievement2020.jpeg' },
-        { title: 'Good Progress Award', issuer: '2020', href: '/assets/certs/edusave-edusaveprogress2020.jpeg' },
-        {
-          title: 'International Research Programme',
-          issuer: 'Chengdu Aeronautic Polytechnic University',
-          href: '/assets/certs/edusave-internationalresearch.jpeg',
-        },
-      ],
-    },
-  ],
-};
-
 export const contact = {
-  heading: 'Get In Touch',
-  lead: 'I am looking for software and data engineering roles, and I am always up for a conversation about a build. Drop me a line and I will reply.',
+  heading: 'Connect with me',
+  lead: 'Whether you want to collaborate, hire, or just say hi — I would love to hear from you. Reach out on any platform below, or send a message directly.',
 };
 
 export const navLinks = [
   { id: 'about', label: 'About' },
   { id: 'why-me', label: 'Why Me' },
   { id: 'skills', label: 'Skills' },
+  { id: 'certs', label: 'Certifications' },
   { id: 'hackathons', label: 'Hackathons' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
-  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ];
