@@ -7,8 +7,12 @@ const BUBBLE_W = 62;
 const BUBBLE_H = 58;
 
 /**
- * Drifts the icon bubbles around inside their basket, bouncing them off the
- * walls. Pure rAF on transform — no physics library, no layout thrash.
+ * Arranges the icon bubbles inside their basket, and — on pointer devices —
+ * drifts them around, bouncing off the walls and off each other.
+ *
+ * Touch devices get the arrangement without the motion. Drifting bubbles rely
+ * on hover to be readable and hold still enough to tap, and a phone has
+ * neither, so movement there is a cost with no benefit.
  */
 function useDrift(fieldRef, count) {
   useEffect(() => {
@@ -18,37 +22,27 @@ function useDrift(fieldRef, count) {
     const nodes = Array.from(field.children);
     let w = field.clientWidth;
     let h = field.clientHeight;
+    let bodies = [];
 
-    // Lay them out on a jittered grid rather than at random, so they start
-    // spread out instead of already piled on top of each other.
-    const cols = Math.max(1, Math.ceil(Math.sqrt(count)));
-    const rows = Math.max(1, Math.ceil(count / cols));
-    const cellW = Math.max(w - BUBBLE_W, 1) / cols;
-    const cellH = Math.max(h - BUBBLE_H, 1) / rows;
+    const maxX = () => Math.max(w - BUBBLE_W, 0);
+    const maxY = () => Math.max(h - BUBBLE_H, 0);
 
-    const bodies = nodes.map((_, i) => ({
-      x: (i % cols) * cellW + Math.random() * cellW * 0.5,
-      y: Math.floor(i / cols) * cellH + Math.random() * cellH * 0.5,
-      vx: (Math.random() - 0.5) * 0.7 || 0.35,
-      vy: (Math.random() - 0.5) * 0.7 || 0.35,
-    }));
+    /** Seed on a jittered grid — spread out, but not mechanically regular. */
+    const layout = () => {
+      const cols = Math.max(1, Math.ceil(Math.sqrt(count)));
+      const cellW = maxX() / cols || 1;
+      const cellH = maxY() / Math.max(1, Math.ceil(count / cols)) || 1;
 
-    let frame;
-    const step = () => {
-      for (let i = 0; i < bodies.length; i++) {
-        const b = bodies[i];
-        b.x += b.vx;
-        b.y += b.vy;
+      bodies = nodes.map((_, i) => ({
+        x: (i % cols) * cellW + Math.random() * cellW * 0.5,
+        y: Math.floor(i / cols) * cellH + Math.random() * cellH * 0.5,
+        vx: (Math.random() - 0.5) * 0.7 || 0.35,
+        vy: (Math.random() - 0.5) * 0.7 || 0.35,
+      }));
+    };
 
-        if (b.x <= 0) { b.x = 0; b.vx = Math.abs(b.vx); }
-        if (b.x >= w - BUBBLE_W) { b.x = w - BUBBLE_W; b.vx = -Math.abs(b.vx); }
-        if (b.y <= 0) { b.y = 0; b.vy = Math.abs(b.vy); }
-        if (b.y >= h - BUBBLE_H) { b.y = h - BUBBLE_H; b.vy = -Math.abs(b.vy); }
-
-      }
-
-      // Separation: nudge any overlapping pair apart so the labels stay
-      // readable instead of stacking into an unreadable clump.
+    /** One pass of pushing overlapping pairs apart. */
+    const separate = (bounce) => {
       for (let i = 0; i < bodies.length; i++) {
         for (let j = i + 1; j < bodies.length; j++) {
           const a = bodies[i];
@@ -64,48 +58,83 @@ function useDrift(fieldRef, count) {
             const push = (overlapX / 2) * (dx < 0 ? -1 : 1);
             a.x -= push;
             b.x += push;
-            a.vx = -Math.abs(a.vx) * (dx < 0 ? -1 : 1);
-            b.vx = Math.abs(b.vx) * (dx < 0 ? -1 : 1);
+            if (bounce) {
+              a.vx = -Math.abs(a.vx) * (dx < 0 ? -1 : 1);
+              b.vx = Math.abs(b.vx) * (dx < 0 ? -1 : 1);
+            }
           } else {
             const push = (overlapY / 2) * (dy < 0 ? -1 : 1);
             a.y -= push;
             b.y += push;
-            a.vy = -Math.abs(a.vy) * (dy < 0 ? -1 : 1);
-            b.vy = Math.abs(b.vy) * (dy < 0 ? -1 : 1);
+            if (bounce) {
+              a.vy = -Math.abs(a.vy) * (dy < 0 ? -1 : 1);
+              b.vy = Math.abs(b.vy) * (dy < 0 ? -1 : 1);
+            }
           }
         }
       }
+    };
 
-      for (let i = 0; i < bodies.length; i++) {
-        const b = bodies[i];
-        b.x = Math.min(Math.max(b.x, 0), Math.max(w - BUBBLE_W, 0));
-        b.y = Math.min(Math.max(b.y, 0), Math.max(h - BUBBLE_H, 0));
-        nodes[i].style.transform = `translate(${b.x.toFixed(1)}px, ${b.y.toFixed(1)}px)`;
+    const clamp = () => {
+      for (const b of bodies) {
+        b.x = Math.min(Math.max(b.x, 0), maxX());
+        b.y = Math.min(Math.max(b.y, 0), maxY());
       }
-      frame = requestAnimationFrame(step);
     };
 
     const paint = () => {
       for (let i = 0; i < bodies.length; i++) {
-        nodes[i].style.transform = `translate(${bodies[i].x.toFixed(1)}px, ${bodies[i].y.toFixed(
-          1
-        )}px)`;
+        nodes[i].style.transform =
+          `translate(${bodies[i].x.toFixed(1)}px, ${bodies[i].y.toFixed(1)}px)`;
       }
     };
 
-    // Place them before anything animates. Without this the bubbles sit
-    // stacked at the origin whenever the loop never runs — for a visitor who
-    // asked for reduced motion, or while the tab is in the background.
-    paint();
+    /**
+     * Resolve the seeded layout before anything is shown. Without this the
+     * bubbles can start overlapping and only untangle once the animation has
+     * run a few frames — which never happens if it is paused or skipped.
+     */
+    const settle = () => {
+      for (let pass = 0; pass < 60; pass++) {
+        separate(false);
+        clamp();
+      }
+    };
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced) frame = requestAnimationFrame(step);
-
-    const onResize = () => {
+    const build = () => {
       w = field.clientWidth;
       h = field.clientHeight;
+      layout();
+      settle();
       paint();
     };
+
+    build();
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover)').matches;
+    const shouldAnimate = canHover && !reduced;
+
+    let frame;
+    if (shouldAnimate) {
+      const step = () => {
+        for (const b of bodies) {
+          b.x += b.vx;
+          b.y += b.vy;
+          if (b.x <= 0) { b.x = 0; b.vx = Math.abs(b.vx); }
+          if (b.x >= maxX()) { b.x = maxX(); b.vx = -Math.abs(b.vx); }
+          if (b.y <= 0) { b.y = 0; b.vy = Math.abs(b.vy); }
+          if (b.y >= maxY()) { b.y = maxY(); b.vy = -Math.abs(b.vy); }
+        }
+        separate(true);
+        clamp();
+        paint();
+        frame = requestAnimationFrame(step);
+      };
+      frame = requestAnimationFrame(step);
+    }
+
+    const onResize = () => build();
     window.addEventListener('resize', onResize);
 
     return () => {
