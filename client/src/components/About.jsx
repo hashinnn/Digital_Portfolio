@@ -17,26 +17,24 @@ export default function About() {
           ))}
         </div>
 
-        {/* Alternating text / image blocks */}
-        {about.blocks.map((block, i) => (
-          <div className="about-block reveal" key={i}>
-            {block.layout === 'images-first' &&
-              block.images.map((img) => (
-                <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
-              ))}
-
-            <div className="about-text">
-              {block.paragraphs.map((p, j) => (
-                <p key={j}>{p}</p>
-              ))}
-            </div>
-
-            {block.layout === 'text-first' &&
-              block.images.map((img) => (
-                <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
-              ))}
+        {/* One paragraph, flanked by two shots */}
+        <div className="about-block reveal">
+          <div className="about-text">
+            <p>{about.intro}</p>
           </div>
-        ))}
+          {about.introImages.map((img) => (
+            <img className="about-shot" key={img.src} src={img.src} alt={img.alt} loading="lazy" />
+          ))}
+        </div>
+
+        <div className="extras reveal">
+          <h3>Extracurriculars</h3>
+          <ul>
+            {about.extracurriculars.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
 
         <p className="traits-label reveal">My lecturers and teammates say I am</p>
         <div className="traits reveal">

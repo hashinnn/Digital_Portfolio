@@ -50,30 +50,17 @@ export const about = {
     { src: '/assets/about/suss-2026.jpeg', caption: 'Bronze\nSUSS 2026', tilt: -3 },
     { src: '/assets/about/nypsu-mural.jpg', caption: 'NYPSU site', tilt: 5 },
   ],
-  blocks: [
-    {
-      layout: 'text-first',
-      paragraphs: [
-        'Year 2 Applied AI & Analytics student at Nanyang Polytechnic, and the kind of student who keeps working on a project after it has been marked.',
-        'I build full-stack — React and Node on one side, Flask and MySQL on the other, AWS serverless underneath when it earns its place. What I care about is the distance between a working demo and something a person can actually rely on: the error states, the empty states, the part where a real user opens it on a real phone.',
-      ],
-      images: [
-        { src: '/assets/about/estateops.png', alt: 'EstateOps defect management dashboard' },
-        { src: '/assets/about/genlink.png', alt: 'Genlink intergenerational platform' },
-      ],
-    },
-    {
-      layout: 'images-first',
-      paragraphs: [
-        'Genlink began as a coursework brief and became a platform that turns a grandmother\'s voice note into a teenager\'s language. A defect-reporting system for a town council began as an assignment and is now being refined with the client. A deadline tracker built over a hackathon weekend runs entirely on AWS serverless, because I wanted to know whether I could.',
-        'I taught myself Tableau after losing a competition with it, went back the next year and placed. That pattern — lose, go away, rebuild, return — is most of how I have learnt anything worth knowing.',
-        'I am looking for software and data engineering roles where I can own a feature from the schema to the screen, and stay long enough to find out whether it held up.',
-      ],
-      images: [
-        { src: '/assets/about/suss-2026.jpeg', alt: 'SUSS 2026 social gifting dashboard' },
-        { src: '/assets/about/aws-hackathon.png', alt: 'DeadlineIQ, AWS x NYP Cloud Hackathon' },
-      ],
-    },
+  intro:
+    'Year 2 Applied AI & Analytics student at Nanyang Polytechnic, and the kind who keeps working on a project after it has been marked. I build full-stack — React and Node on one side, Flask and MySQL on the other, AWS serverless when it earns its place — and what I care about is the distance between a working demo and something a person can actually rely on. I taught myself Tableau after losing a competition with it, went back the next year and placed; lose, rebuild, return is most of how I have learnt anything worth knowing. I am looking for software and data engineering roles where I can own a feature from the schema to the screen.',
+  introImages: [
+    { src: '/assets/about/estateops.png', alt: 'EstateOps defect management dashboard' },
+    { src: '/assets/about/genlink.png', alt: 'Genlink intergenerational platform' },
+  ],
+  extracurriculars: [
+    'NYP Ladies in Tech — Sub-Committee Member',
+    'NYP Cloud Computing — Sub-Committee Member',
+    'NYAA Bronze Award — Awarded for community service contributions',
+    'NYAA Gold Award (in progress) — 80+ service hours completed',
   ],
   traits: [
     'Ships Past The Grade',
@@ -188,24 +175,25 @@ export const skills = {
 
 export const certifications = {
   heading: 'Certifications',
+  filters: ['All', 'Technical', 'Academic'],
   items: [
-    { title: 'SnowPro Associate — Snowflake', img: '/assets/certs/snowpro-associate.png', href: '/assets/certs/snowpro-associate.pdf' },
-    { title: 'PCEP — Certified Entry-Level Python Programmer', img: '/assets/certs/pcep-python.png', href: '/assets/certs/pcep-python.pdf' },
-    { title: 'Web Development Fundamentals — IBM', img: '/assets/certs/ibm-web-dev.png', href: '/assets/certs/ibm-web-dev.pdf' },
-    { title: 'UX Design Fundamentals — IBM', img: '/assets/certs/ibm-ux-design.png', href: '/assets/certs/ibm-ux-design.pdf' },
-    { title: 'AI Fluency — Anthropic', href: '/assets/certs/anthropic-ai-fluency.pdf' },
-    { title: 'Literacy in AI — AI Singapore', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
-    { title: 'Web Development Bootcamp — Ipasmo', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
-    { title: 'Analytics & Visualisation Challenge 2025 — SUSS', href: '/assets/certs/suss-avc-2025.pdf' },
-    { title: 'Edusave Merit Award 2024', img: '/assets/certs/edusave-edusavemerit2024.jpeg', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
-    { title: 'Academic Achievement 2024', img: '/assets/certs/edusave-edusaveachievement2024.jpeg', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
-    { title: 'Academic Achievement 2023', img: '/assets/certs/edusave-edusaveachievement2023.jpeg', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
-    { title: 'Good Progress Award 2023', img: '/assets/certs/edusave-edusaveprogress2023.jpeg', href: '/assets/certs/edusave-edusaveprogress2023.jpeg' },
-    { title: 'SINDA Sustained Improvement — Science 2023', img: '/assets/certs/edusave-sinda2023.jpeg', href: '/assets/certs/edusave-sinda2023.jpeg' },
-    { title: 'Edusave Scholarship 2021', img: '/assets/certs/edusave-edusavescholarship2021.jpeg', href: '/assets/certs/edusave-edusavescholarship2021.jpeg' },
-    { title: 'Academic Achievement 2020', img: '/assets/certs/edusave-edusaveachievement2020.jpeg', href: '/assets/certs/edusave-edusaveachievement2020.jpeg' },
-    { title: 'Good Progress Award 2020', img: '/assets/certs/edusave-edusaveprogress2020.jpeg', href: '/assets/certs/edusave-edusaveprogress2020.jpeg' },
-    { title: 'International Research Programme — Chengdu', img: '/assets/certs/edusave-internationalresearch.jpeg', href: '/assets/certs/edusave-internationalresearch.jpeg' },
+    { cat: 'Technical', title: 'SnowPro Associate — Snowflake', img: '/assets/certs/snowpro-associate.png', href: '/assets/certs/snowpro-associate.pdf' },
+    { cat: 'Technical', title: 'PCEP — Certified Entry-Level Python Programmer', img: '/assets/certs/pcep-python.png', href: '/assets/certs/pcep-python.pdf' },
+    { cat: 'Technical', title: 'Web Development Fundamentals — IBM', img: '/assets/certs/ibm-web-dev.png', href: '/assets/certs/ibm-web-dev.pdf' },
+    { cat: 'Technical', title: 'UX Design Fundamentals — IBM', img: '/assets/certs/ibm-ux-design.png', href: '/assets/certs/ibm-ux-design.pdf' },
+    { cat: 'Technical', title: 'AI Fluency — Anthropic', href: '/assets/certs/anthropic-ai-fluency.pdf' },
+    { cat: 'Technical', title: 'Literacy in AI — AI Singapore', href: '/assets/certs/ai4i-literacy-in-ai.pdf' },
+    { cat: 'Technical', title: 'Web Development Bootcamp — Ipasmo', href: '/assets/certs/ipasmo-web-dev-bootcamp.pdf' },
+    { cat: 'Technical', title: 'Analytics & Visualisation Challenge 2025 — SUSS', href: '/assets/certs/suss-avc-2025.pdf' },
+    { cat: 'Academic', title: 'Edusave Merit Award 2024', img: '/assets/certs/edusave-edusavemerit2024.jpeg', href: '/assets/certs/edusave-edusavemerit2024.jpeg' },
+    { cat: 'Academic', title: 'Academic Achievement 2024', img: '/assets/certs/edusave-edusaveachievement2024.jpeg', href: '/assets/certs/edusave-edusaveachievement2024.jpeg' },
+    { cat: 'Academic', title: 'Academic Achievement 2023', img: '/assets/certs/edusave-edusaveachievement2023.jpeg', href: '/assets/certs/edusave-edusaveachievement2023.jpeg' },
+    { cat: 'Academic', title: 'Good Progress Award 2023', img: '/assets/certs/edusave-edusaveprogress2023.jpeg', href: '/assets/certs/edusave-edusaveprogress2023.jpeg' },
+    { cat: 'Academic', title: 'SINDA Sustained Improvement — Science 2023', img: '/assets/certs/edusave-sinda2023.jpeg', href: '/assets/certs/edusave-sinda2023.jpeg' },
+    { cat: 'Academic', title: 'Edusave Scholarship 2021', img: '/assets/certs/edusave-edusavescholarship2021.jpeg', href: '/assets/certs/edusave-edusavescholarship2021.jpeg' },
+    { cat: 'Academic', title: 'Academic Achievement 2020', img: '/assets/certs/edusave-edusaveachievement2020.jpeg', href: '/assets/certs/edusave-edusaveachievement2020.jpeg' },
+    { cat: 'Academic', title: 'Good Progress Award 2020', img: '/assets/certs/edusave-edusaveprogress2020.jpeg', href: '/assets/certs/edusave-edusaveprogress2020.jpeg' },
+    { cat: 'Academic', title: 'International Research Programme — Chengdu', img: '/assets/certs/edusave-internationalresearch.jpeg', href: '/assets/certs/edusave-internationalresearch.jpeg' },
   ],
 };
 
@@ -300,14 +288,15 @@ export const projects = [
     links: [{ kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' }],
   },
   {
-    id: 'calorie-bot',
-    title: 'Telegram Calorie Bot',
-    award: 'Self-directed — running 24/7',
-    image: '/assets/projects/calorie-bot.svg',
+    id: 'hospital-flow',
+    title: 'Hospital Patient Flow Dashboard',
+    award: 'Built on real government healthcare data',
+    image: '/assets/projects/hospital-flow.svg',
     description:
-      'A Telegram bot that estimates calories and macros from a photo of a meal using Claude\'s vision API. Built for my own meal tracking rather than for a grade, and deployed on Render where it has been running ever since.',
-    tags: ['Node.js', 'Claude Vision API', 'Telegram API', 'Render'],
-    links: [{ kind: 'github', href: 'https://github.com/hashinnn/telegram_calorie_bot' }],
+      'A Power BI dashboard analysing patient flow through public hospitals using open government healthcare datasets — admissions, length of stay and bed occupancy modelled in DAX so the pressure points show up before they become a queue.',
+    tags: ['Power BI', 'DAX', 'Data Modelling'],
+    links: [],
+    noLinkNote: 'Power BI build — no public repo',
   },
   {
     id: 'suss2026',

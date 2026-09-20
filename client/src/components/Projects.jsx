@@ -48,7 +48,7 @@ export default function Projects() {
                       })}
                     </>
                   ) : (
-                    <p className="none">Tableau build — no public repo</p>
+                    <p className="none">{project.noLinkNote ?? 'No public repo'}</p>
                   )}
                 </div>
               </div>

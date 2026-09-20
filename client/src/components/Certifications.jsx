@@ -34,7 +34,12 @@ export default function Certifications({ onOpen }) {
   const [hovered, setHovered] = useState(null);
   const narrow = useIsNarrow();
 
-  const items = certifications.items;
+  const [filter, setFilter] = useState('All');
+
+  const items =
+    filter === 'All'
+      ? certifications.items
+      : certifications.items.filter((c) => c.cat === filter);
 
   // Fan the deck across whatever width we have, without letting the cards
   // overlap so far that nothing is recognisable.
@@ -48,13 +53,33 @@ export default function Certifications({ onOpen }) {
     measure();
     window.addEventListener('resize', measure);
     return () => window.removeEventListener('resize', measure);
-  }, [items.length, narrow]);
+  }, [items.length, narrow, filter]);
 
   return (
     <section className="section band" id="certs">
       <div className="shell">
         <h2 className="section-title">{certifications.heading}</h2>
         <hr className="rule" />
+        <div className="filters">
+          {certifications.filters.map((name) => (
+            <button
+              key={name}
+              className={`filter${filter === name ? ' is-active' : ''}`}
+              onClick={() => {
+                setFilter(name);
+                setHovered(null);
+              }}
+            >
+              {name}
+              <span className="filter-count">
+                {name === 'All'
+                  ? certifications.items.length
+                  : certifications.items.filter((c) => c.cat === name).length}
+              </span>
+            </button>
+          ))}
+        </div>
+
         <p className="cert-hint">
           {narrow ? 'Swipe through, tap any to view.' : 'Hover to lift one out, click to view it in full.'}
         </p>

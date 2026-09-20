@@ -565,6 +565,52 @@ button {
   box-shadow: 0 0 22px rgba(45, 212, 191, 0.45);
 }
 
+.extras {
+  max-width: 720px;
+  margin: clamp(40px, 6vw, 60px) auto 0;
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--navy-light);
+}
+
+.extras h3 {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.extras ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.extras li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.extras li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
 .traits-label {
   text-align: center;
   color: var(--text-dim);
@@ -757,6 +803,51 @@ button {
 /* ===========================================================================
    Certifications — fanned deck
    =========================================================================== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.22s var(--ease);
+}
+
+.filter:hover {
+  border-color: var(--line-teal);
+  color: var(--teal);
+}
+
+.filter.is-active {
+  border-color: var(--teal);
+  background: var(--teal-wash);
+  color: var(--teal);
+}
+
+.filter-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(240, 240, 240, 0.08);
+  color: inherit;
+}
+
+.filter.is-active .filter-count {
+  background: rgba(45, 212, 191, 0.18);
+}
 
 .cert-hint {
   text-align: center;
