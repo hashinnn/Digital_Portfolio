@@ -3,9 +3,9 @@
 // Edit this file, not the JSX.
 // ---------------------------------------------------------------------------
 
-// Vite's base path: '/' at a domain root, '/Digital_Portfolio/' when GitHub
-// Pages serves this from a project subpath. Every asset URL goes through it so
-// the same build works in both places.
+// Vite's base path — '/' for this user site, or '/<repo-name>/' if the site is
+// ever served from a project subpath instead. Every asset URL goes through it,
+// so the same source builds correctly either way.
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 const asset = (path) => BASE + path;
 
