@@ -29,9 +29,7 @@ export const profile = {
   whatsappDisplay: '+65 8764 6580',
   linkedin: 'https://www.linkedin.com/in/ginjala-h-31223b383',
   github: GITHUB,
-  // TODO: replace with the real CV — this currently opens the Hatch
-  // internship certificate, which is not what the button promises.
-  cv: asset('/assets/docs/hatch-certificate.pdf'),
+  cv: asset('/assets/docs/ginjala-hasini-cv.pdf'),
 };
 
 // ---------------------------------------------------------------------------
