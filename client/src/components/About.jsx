@@ -1,5 +1,21 @@
 import { about } from '../data/content.js';
 
+const BOLD = /(\*\*[^*]+\*\*)/g;
+
+/**
+ * Renders the **marked** terms in a paragraph as bold, leaving the rest as
+ * plain text. Keeps content.js readable without pulling in a Markdown parser.
+ */
+function Emphasised({ text }) {
+  return text.split(BOLD).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? (
+      <strong key={i}>{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function About({ onZoom }) {
   return (
     <section className="section" id="about">
@@ -25,7 +41,9 @@ export default function About({ onZoom }) {
 
         <div className="about-prose reveal">
           {about.paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>
+              <Emphasised text={p} />
+            </p>
           ))}
         </div>
 

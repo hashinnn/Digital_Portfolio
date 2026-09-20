@@ -463,8 +463,8 @@ button {
 }
 
 .home-education .school {
-  color: var(--grey);
-  font-weight: 400;
+  color: var(--white);
+  font-weight: 700;
 }
 
 .home-education .course {
@@ -834,6 +834,12 @@ button {
   color: var(--text-dim);
   font-size: 16.4px;
   line-height: 1.75;
+}
+
+/* The scannable terms: brighter and heavier than the prose around them. */
+.about-prose strong {
+  color: var(--white);
+  font-weight: 600;
 }
 
 .extras {
