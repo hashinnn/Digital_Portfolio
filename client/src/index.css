@@ -21,7 +21,6 @@
   /* Used only by the name gradient, which runs teal into violet into pink. */
   --purple: #a78bfa;
   --pink: #f472b6;
-  --blue: #60a5fa;
 
   /* White at reduced opacity — the only "greys" on the site. */
   --text: var(--white);
@@ -32,7 +31,6 @@
   --line-teal: rgba(45, 212, 191, 0.28);
   --teal-wash: rgba(45, 212, 191, 0.08);
 
-  --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 18px;
 

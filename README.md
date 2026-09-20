@@ -16,20 +16,30 @@ Node service.
 
 ## Design
 
-Three colours, and nothing else:
-
 | Token | Value | Used for |
 | ----- | ----- | -------- |
 | `--navy` | `#0a0f2c` | page background |
-| `--navy-mid` | `#0d1235` | alternating section bands |
+| `--navy-mid` | `#0d1235` | alternating section bands (translucent, so the starfield reads through) |
 | `--navy-light` | `#111640` | cards |
 | `--teal` | `#2dd4bf` | every accent, link and highlight |
-| `--white` | `#f0f0f0` | all text, dimmed with opacity rather than grey |
+| `--white` | `#f0f0f0` | all text |
+| `--grey`, `--grey-light` | `#a0a0b0`, `#c8c8d4` | hero and nav secondary text |
+| `--purple`, `--pink` | `#a78bfa`, `#f472b6` | the name gradient only |
 
-There are no other hues in the stylesheet. Greys are white at reduced opacity, so the
-palette stays navy / teal / white throughout. The tech icons use Iconify's `simple-icons`
-set, which is monochrome and inherits the teal — swapping them for `logos:` equivalents
-would bring brand colours back in.
+Navy, teal and white carry the whole page. Violet and pink appear in exactly one place —
+the gradient across the name in the hero — and the tech logos in the Skills baskets keep
+their own brand colours. Every text colour clears WCAG AA against its background
+(the lowest is 5.36:1).
+
+## Images
+
+The rendered images are WebP, resized to the largest size they are ever displayed at:
+1600px for project shots, 1200px for certificates and About photos, 700px for the
+portrait. That is 1.8 MB for the 33 images on the page, down from 10.4 MB as PNG/JPEG.
+
+Originals are kept unconverted in `Projects/`, `Certifications/` and `About_Me/` at the
+repo root. If you replace an image, run it through the same treatment or the page weight
+climbs straight back.
 
 ## Running locally
 
@@ -79,8 +89,10 @@ and the card renders a GitHub icon under "See more on:".
 
 To swap a photo in the About collage, drop yours into `client/public/assets/about/` and
 point the `polaroids` entry at it — `tilt` is the rotation in degrees. The same goes for
-the two images beside each About paragraph block, and for the picture in each Hackathons
-storyboard panel.
+the picture in each Hackathons storyboard panel.
+
+About paragraphs support `**bold**` markers for the terms a skim-reader should catch;
+`About.jsx` renders them, so no Markdown dependency is involved.
 
 Certificates are a fanned deck; each entry takes an `img` (the poster shown on the card)
 and an `href` (the real document). Entries with no `img` get a generated navy cover and
@@ -100,6 +112,9 @@ The tech icons load from the Iconify API at runtime rather than being bundled. T
 cached by the browser after the first visit. If Iconify is ever unreachable, the skill
 bubbles render as empty circles with their text labels still readable — nothing else on
 the page is affected.
+
+Not every name exists in every Iconify set: `logos:aws-textract` does not, for instance.
+Check a new icon renders before trusting it.
 
 ## Contact form
 
