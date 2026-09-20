@@ -65,11 +65,23 @@ export const about = {
     'Those two halves turn out to be the same skill. Explaining a scam call to someone who has never heard of phishing is the same work as an error message that tells a user what to do next. I am looking for **software and data engineering roles** where I can **own a feature from the schema to the screen**, and stay long enough to find out whether it held up.',
   ],
   extracurriculars: [
-    'NYP Ladies in Tech — Sub-Committee Member',
-    'NYP Cloud Computing — Sub-Committee Member',
-    'NYAA Community Leadership Initiatives (CLI) — Sub-Committee Member',
-    'NYAA Bronze Award — Awarded for community service contributions',
-    'NYAA Gold Award (in progress) — 80+ service hours completed',
+    {
+      label: 'Extracurriculars',
+      note: 'Tech interest groups',
+      items: [
+        'NYP Ladies in Tech — Sub-Committee Member',
+        'NYP Cloud Computing — Sub-Committee Member',
+      ],
+    },
+    {
+      label: 'Volunteering',
+      note: 'National Youth Achievement Award (NYAA)',
+      items: [
+        'Community Leadership Initiatives (CLI) — Sub-Committee Member',
+        'Bronze Award — Awarded for community service contributions',
+        'Gold Award (in progress) — 80+ service hours completed',
+      ],
+    },
   ],
 };
 

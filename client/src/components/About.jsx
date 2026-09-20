@@ -48,12 +48,17 @@ export default function About({ onZoom }) {
         </div>
 
         <div className="extras reveal">
-          <h3>Extracurriculars</h3>
-          <ul>
-            {about.extracurriculars.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          {about.extracurriculars.map((group) => (
+            <div className="extras-group" key={group.label}>
+              <h3>{group.label}</h3>
+              <p className="extras-note">{group.note}</p>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

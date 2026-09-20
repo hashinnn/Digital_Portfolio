@@ -843,22 +843,33 @@ button {
 }
 
 .extras {
-  max-width: 720px;
+  max-width: 840px;
   margin: clamp(40px, 6vw, 60px) auto 0;
   padding: 26px 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--navy-light);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 36px;
+  align-items: start;
 }
 
 .extras h3 {
-  margin: 0 0 16px;
+  margin: 0 0 2px;
   font-size: 13px;
   font-family: var(--font-mono);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--teal);
   font-weight: 500;
+}
+
+/* What the group actually covers, under its label. */
+.extras-note {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--text-mute);
 }
 
 .extras ul {
@@ -886,6 +897,12 @@ button {
   height: 7px;
   border-radius: 50%;
   background: var(--teal);
+}
+
+@media (max-width: 720px) {
+  .extras {
+    grid-template-columns: 1fr;
+  }
 }
 
 .traits-label {
