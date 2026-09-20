@@ -260,6 +260,19 @@ export const journey = {
 
 export const projects = [
   {
+    id: 'estateops',
+    title: 'EstateOps',
+    award: 'Selected for client presentation — now in refinement with the client',
+    image: '/assets/projects/estateops.png',
+    description:
+      'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
+    tags: ['React', 'Node/Express', 'Supabase', 'Computer Vision'],
+    links: [
+      { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
+      { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
+    ],
+  },
+  {
     id: 'deadlineiq',
     title: 'DeadlineIQ',
     award: '2nd place — AWS × NYP Cloud Hackathon 2026',
@@ -271,19 +284,6 @@ export const projects = [
       { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
       { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
       { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7496768524195942400/' },
-    ],
-  },
-  {
-    id: 'estateops',
-    title: 'EstateOps',
-    award: 'Selected for client presentation — now in refinement with the client',
-    image: '/assets/projects/estateops.png',
-    description:
-      'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
-    tags: ['React', 'Node/Express', 'Supabase', 'Computer Vision'],
-    links: [
-      { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
-      { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
     ],
   },
   {
