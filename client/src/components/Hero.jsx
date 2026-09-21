@@ -39,7 +39,7 @@ export default function Hero() {
     <section className="hero" id="top">
       <div className="home-container">
         <div className="home-text">
-          <p className="home-greeting">Hi there, I&apos;m</p>
+          <p className="home-greeting">Hi there, I&rsquo;m</p>
 
           <h1 className="home-name">
             <span className="gradient-text">{profile.name}</span>

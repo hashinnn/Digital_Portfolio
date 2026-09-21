@@ -81,7 +81,7 @@ export const about = {
       note: 'National Youth Achievement Award (NYAA)',
       items: [
         'Community Leadership Initiatives (CLI) — Sub-Committee Member',
-        'Bronze Award — Awarded for community service contributions',
+        'Bronze Award — for community service contributions',
         'Gold Award (in progress) — 80+ service hours completed',
       ],
     },
@@ -121,7 +121,7 @@ export const whyMe = {
         'Bronze, one year after walking away from the same competition with nothing. 10,869 orders analysed in Tableau in a two-hour build.',
     },
     {
-      project: "NYP Students' Union",
+      project: 'NYP Students’ Union',
       award: 'A grade — commended for visual design',
       detail:
         'A CCA site that leans all the way into street-art styling instead of playing it safe: graffiti typography, bold colour, a live Instagram feed.',
@@ -249,7 +249,7 @@ export const journey = {
       href: 'https://public.tableau.com/views/SUSS_Competition_2025_Imporved/KindraSalesOverview?:language=en-GB&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       linkLabel: 'Open the rebuilt dashboard',
       body:
-        'I kept the dataset and kept going. I rebuilt the whole thing around a single finding — 87% of Kindra\'s sales come from one café and one category — and made every chart on the page support that one sentence. Nobody graded this version. It is the one that taught me the most.',
+        'I kept the dataset and kept going. I rebuilt the whole thing around a single finding — 87% of Kindra’s sales come from one café and one category — and made every chart on the page support that one sentence. Nobody graded this version. It is the one that taught me the most.',
     },
     {
       chapter: '03',
@@ -352,7 +352,7 @@ export const projects = [  {
   },
   {
     id: 'nypsu',
-    title: "NYP Students' Union",
+    title: 'NYP Students’ Union',
     award: 'A grade — commended for visual design',
     image: asset('/assets/projects/nypsu.webp'),
     description:
