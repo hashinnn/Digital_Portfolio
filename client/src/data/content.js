@@ -27,7 +27,7 @@ export const profile = {
   email: 'hasinirg7@gmail.com',
   whatsapp: '6587646580',
   whatsappDisplay: '+65 8764 6580',
-  linkedin: 'https://www.linkedin.com/in/ginjala-h-31223b383',
+  linkedin: 'https://www.linkedin.com/in/ginjalahasini/',
   github: GITHUB,
   cv: asset('/assets/docs/ginjala-hasini-cv.pdf'),
 };
@@ -383,7 +383,7 @@ export const experience = {
       ],
     },
     {
-      period: 'May – Jun 2022',
+      period: 'Apr – May 2022',
       role: 'METEOR Programme',
       kind: 'Programme',
       org: 'Crater',
