@@ -330,7 +330,7 @@ export const projects = [  {
     award: 'Built on real government healthcare data',
     image: asset('/assets/projects/hospital-flow.webp'),
     description:
-      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the waiting actually happens. 63% of admissions come from patients over 65, and average waits run 5.4 hours at general hospitals against 1.8 hours at emergency departments.',
+      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and bottlenecks inside the emergency department. 63% of admissions come from patients aged 65 and over, and the emergency department holds the shortest average wait of any hospital type: 1.8 hours against 5.4 at general hospitals.',
     tags: ['Power BI', 'DAX', 'Data Modelling'],
     links: [],
     noLinkNote: 'Power BI build — no public repo',
