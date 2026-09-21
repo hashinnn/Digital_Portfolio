@@ -115,7 +115,7 @@ export const whyMe = {
         'Second in problem statement PS-3. A five-factor priority engine on AWS, where the AI writes the explanation but never picks the order.',
     },
     {
-      project: 'Social Gifting Insights',
+      project: 'Social Gifting Sales Insights',
       award: '3rd place — SUSS Analytics & Visualisation 2026',
       detail:
         'Bronze, one year after walking away from the same competition with nothing. 10,869 orders analysed in Tableau in a two-hour build.',
@@ -261,7 +261,7 @@ export const journey = {
       href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       linkLabel: 'Open the dashboard',
       body:
-        'Back to the same competition. Two hours, a team, 10,869 orders of social-gifting data, and a dashboard that opened with the answer instead of the exploration. Third place.',
+        'Back to the same competition. Two hours, a team, 10,869 orders from Social Gifting, and a dashboard that opened with the answer instead of the exploration. Third place.',
     },
     {
       chapter: '04',
@@ -330,7 +330,7 @@ export const projects = [  {
     award: 'Built on real government healthcare data',
     image: asset('/assets/projects/hospital-flow.webp'),
     description:
-      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the emergency department actually jams. 63% of admissions come from patients over 65, and average wait times run 5.4 hours at general hospitals against 1.8 at ED.',
+      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and where the waiting actually happens. 63% of admissions come from patients over 65, and average waits run 5.4 hours at general hospitals against 1.8 hours at emergency departments.',
     tags: ['Power BI', 'DAX', 'Data Modelling'],
     links: [],
     noLinkNote: 'Power BI build — no public repo',
@@ -341,7 +341,7 @@ export const projects = [  {
     award: '3rd place — SUSS Analytics & Visualisation 2026',
     image: asset('/assets/projects/suss2026.webp'),
     description:
-      'A two-hour team build in Tableau answering how a social gifting platform can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
+      'A two-hour team build in Tableau answering how Social Gifting, a Singapore social enterprise, can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
     tags: ['Tableau', 'EDA', 'Data Storytelling'],
     links: [
       {
@@ -374,9 +374,9 @@ export const experience = {
       role: 'UX / Product Design Intern',
       kind: 'Internship',
       org: 'Hatch',
-      orgNote: 'Youth digital skills organisation',
+      orgNote: 'Youth digital skills social enterprise',
       bullets: [
-        'Produced 5 wireframes and 3 mood boards in Figma proposing a revised navigation structure for a platform serving 200+ underserved youth; elements of the proposal carried into the Q3 2022 site redesign.',
+        'Produced 5 wireframes and 3 mood boards in Figma proposing a revised navigation structure for a platform serving 200+ underserved youth, and prototyped a live chat feature; elements of the proposal carried into the Q3 2022 site redesign.',
         'Applied accessibility requirements to each design — type sizing, contrast and touch target dimensions — for an audience using low-end devices on unreliable connections.',
         'Presented proposals to staff stakeholders and revised them against their feedback.',
       ],
