@@ -98,7 +98,7 @@ export const whyMe = {
   items: [
     {
       project: 'Genlink',
-      award: 'Outstanding Project Presentation',
+      award: 'Outstanding Project Presentation — NYP Web Development Project',
       detail:
         'A Flask and MySQL platform that matches users across three age bands, auto-translates every post across 132 locales, and keeps chat and a shared chess board in sync over Socket.IO.',
     },
@@ -157,6 +157,7 @@ export const skills = {
         { icon: 'skill-icons:flask-dark', label: 'Flask' },
         { icon: 'skill-icons:bootstrap', label: 'Bootstrap' },
         { icon: 'logos:socket-io', label: 'Socket.IO' },
+        { icon: 'logos:chartjs', label: 'Chart.js' },
       ],
     },
     {
@@ -166,6 +167,8 @@ export const skills = {
         { icon: 'logos:aws-dynamodb', label: 'DynamoDB' },
         { icon: 'logos:aws-eventbridge', label: 'EventBridge' },
         { icon: 'logos:aws', label: 'Textract' },
+        { icon: 'logos:aws-api-gateway', label: 'API Gateway' },
+        { icon: 'logos:aws-cloudformation', label: 'SAM' },
         { icon: 'logos:supabase-icon', label: 'Supabase' },
         { icon: 'logos:postgresql', label: 'PostgreSQL' },
         { icon: 'logos:snowflake-icon', label: 'Snowflake' },
@@ -296,7 +299,7 @@ export const projects = [  {
   {
     id: 'genlink',
     title: 'Genlink',
-    award: 'Outstanding Project Presentation',
+    award: 'Outstanding Project Presentation — NYP Web Development Project',
     image: asset('/assets/projects/genlink.webp'),
     description:
       'A Flask and MySQL platform pairing users across three age bands by shared interests. Audio posts are uploaded server-side and passed through the Google Neural Machine Translation API so every post renders in the reader’s own language across 132 locales. Socket.IO carries the direct messaging and a move-by-move synced chess board, with Google OAuth 2.0 for sign-in and an admin approval queue gating community events.',
