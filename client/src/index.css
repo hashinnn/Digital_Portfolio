@@ -685,6 +685,34 @@ button {
   transform: scale(1.4);
 }
 
+/* The hero marker is a home glyph, so it drops the dot's fill, ring and the
+   scale the others grow by — an icon needs far less of a nudge to register. */
+.dot.is-home {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.dot.is-home:hover,
+.dot.is-home.is-active {
+  background: none;
+  box-shadow: none;
+  transform: scale(1.15);
+}
+
+.dot.is-home:hover {
+  color: var(--teal-bright);
+}
+
+.dot.is-home.is-active {
+  color: var(--teal);
+}
+
 .dot-tip {
   position: absolute;
   right: 20px;
@@ -1397,7 +1425,12 @@ button {
   opacity: 0.5;
 }
 
+/* A button so the storyboard stills open by keyboard, not just by mouse —
+   the same pattern the polaroids and project cards use. */
 .frame-window {
+  display: block;
+  width: 100%;
+  padding: 0;
   overflow: hidden;
   border-radius: 6px;
   border: 1px solid var(--line);
@@ -1413,7 +1446,7 @@ button {
   transition: transform 0.45s var(--ease), opacity 0.3s var(--ease);
 }
 
-.frame-window img:hover {
+.frame-window:hover img {
   transform: scale(1.035);
   opacity: 0.92;
 }

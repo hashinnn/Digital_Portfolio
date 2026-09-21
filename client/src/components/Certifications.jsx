@@ -104,6 +104,9 @@ export default function Certifications({ onOpen }) {
                 else transform = 'translateY(-96px) scale(1.18)';
               }
 
+              // Earlier cards stack on top of later ones, so the fan reads left
+              // to right: the first certificate is the one fully in view and
+              // each one after it tucks in behind.
               return (
                 <button
                   className="cert-card"
@@ -111,7 +114,7 @@ export default function Certifications({ onOpen }) {
                   title={cert.title}
                   style={{
                     left: `${i * spacing}px`,
-                    zIndex: hovered === i ? 50 : i,
+                    zIndex: hovered === i ? 50 : items.length - i,
                     transform,
                   }}
                   onMouseEnter={() => setHovered(i)}

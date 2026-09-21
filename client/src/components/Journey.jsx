@@ -20,16 +20,15 @@ export default function Journey({ onZoom }) {
                     Scene {panel.chapter} <i>·</i> {panel.year}
                   </span>
 
-                  <div className="frame-window">
-                    <img
-                      src={panel.image}
-                      alt={panel.caption}
-                      loading="lazy"
-                      onClick={() =>
-                        onZoom({ img: panel.image, title: panel.caption, href: panel.href })
-                      }
-                    />
-                  </div>
+                  <button
+                    className="frame-window"
+                    onClick={() =>
+                      onZoom({ img: panel.image, title: panel.caption, href: panel.href })
+                    }
+                    aria-label={`View ${panel.caption} full size`}
+                  >
+                    <img src={panel.image} alt={panel.caption} loading="lazy" />
+                  </button>
 
                   <span className="frame-slate">{panel.caption}</span>
                 </div>
