@@ -100,7 +100,7 @@ export const whyMe = {
       project: 'Genlink',
       award: 'Outstanding Project Presentation — NYP Web Development Project',
       detail:
-        'A Flask and MySQL platform that matches users across three age bands, auto-translates every post across 132 locales, and keeps chat and a shared chess board in sync over Socket.IO.',
+        'A Flask and MySQL platform for an intergenerational community. I built the authentication — three-step signup, Google OAuth, reset tokens over Gmail SMTP — and the date-of-birth age banding that decides who each member sees.',
     },
     {
       project: 'EstateOps',
@@ -301,8 +301,8 @@ export const projects = [  {
     award: 'Outstanding Project Presentation — NYP Web Development Project',
     image: asset('/assets/projects/genlink.webp'),
     description:
-      'A Flask and MySQL platform pairing users across three age bands by shared interests. Audio posts are uploaded server-side and passed through the Google Neural Machine Translation API so every post renders in the reader’s own language across 132 locales. Socket.IO carries the direct messaging and a move-by-move synced chess board, with Google OAuth 2.0 for sign-in and an admin approval queue gating community events.',
-    tags: ['Flask', 'MySQL', 'Socket.IO', 'Google NMT'],
+      'A Flask and MySQL platform for an intergenerational community, built with four others. I owned authentication: a three-step signup whose draft survives a refresh, Google OAuth 2.0 that pre-fills it, Unicode-aware name validation and password rules, and time-limited reset tokens over Gmail SMTP. Age bands — youth, adult, elderly — are computed from date of birth rather than self-declared, and that is what drives who the platform shows you.',
+    tags: ['Flask', 'MySQL', 'Google OAuth', 'Bootstrap'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/WDP_PROJECT_FINAL' },
       { kind: 'link', href: 'https://genlink-283z.onrender.com/' },
@@ -355,7 +355,7 @@ export const projects = [  {
     award: 'A grade — commended for visual design',
     image: asset('/assets/projects/nypsu.webp'),
     description:
-      'A front-end CCA site that refuses to look like a school microsite — graffiti typography, full-bleed mural photography and a live Instagram feed. Static multi-page build with no frameworks or libraries.',
+      'A front-end CCA site that refuses to look like a school microsite — graffiti typography, full-bleed mural photography and six live Instagram embeds. Six static pages laid out on Bootstrap, with the month calendar, carousels and FAQ filtering written in plain JavaScript. No bundler, no build step.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
     links: [{ kind: 'github', href: 'https://github.com/hashinnn/nypsu_site_concept' }],
   },
