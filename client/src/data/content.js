@@ -315,7 +315,7 @@ export const projects = [  {
     award: '2nd place — AWS × NYP Cloud Hackathon 2026',
     image: asset('/assets/projects/deadlineiq.webp'),
     description:
-      'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit. I built the priority engine — five sub-scores normalised to 0–100 and combined under tunable weights — plus Focus Mode, milestones, crash-week detection and the workload heatmap. Two decisions make it academic rather than generic: preparation days shift the effective deadline earlier, so a test five days out that needs three days of revision ranks as though it were two days away; and when the hours left exceed the hours you actually have, it calls the work impossible rather than merely urgent. The engine is pure functions with no clock inside the maths, so any ranking reproduces by hand — the AI writes the sentence explaining a rank, never the rank itself.',
+      'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit. I built the priority engine — five weighted sub-scores, plus Focus Mode, milestones and the workload heatmap. Preparation days shift the effective deadline earlier, so a test five days out that needs three days of revision ranks as though it were two days away. The AI writes the sentence explaining a rank, never the rank itself, so any ranking reproduces by hand.',
     tags: ['AWS Serverless', 'CloudFormation', 'OpenRouter', 'React'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
