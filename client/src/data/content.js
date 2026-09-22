@@ -180,7 +180,6 @@ export const skills = {
         { icon: 'logos:tableau-icon', label: 'Tableau' },
         { icon: 'logos:microsoft-power-bi', label: 'Power BI' },
         { icon: 'logos:pandas-icon', label: 'Pandas' },
-        { icon: 'simple-icons:roboflow', label: 'Roboflow' },
         { icon: 'simple-icons:openai', label: 'OpenAI' },
         { icon: 'logos:git-icon', label: 'Git' },
         { icon: 'skill-icons:github-dark', label: 'GitHub' },
@@ -289,8 +288,8 @@ export const projects = [  {
     award: 'Selected for client presentation — now in refinement with the client',
     image: asset('/assets/projects/estateops.webp'),
     description:
-      'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. Roboflow computer vision classifies defects straight from a photo, Socket.IO keeps office and ground staff on the same board, and the analytics view tracks response time against last month.',
-    tags: ['React', 'Node/Express', 'Supabase', 'Computer Vision'],
+      'A full-stack estate defect and lift inspection platform built with EM Services for Sembawang Town Council. I owned three use cases — a manager analytics dashboard where a block heatmap drills through to the records behind it and open jobs rank on a weighted priority score, cost analytics that projects maintenance spend three months out with an 80% band and grades itself against held-out months, and a vendor account lifecycle where a nightly job suspends expired contracts and the table refreshes live over Socket.IO.',
+    tags: ['React', 'Node/Express', 'Supabase', 'Socket.IO'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
       { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
