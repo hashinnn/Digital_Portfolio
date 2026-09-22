@@ -166,7 +166,7 @@ export const skills = {
         { icon: 'logos:aws-lambda', label: 'Lambda' },
         { icon: 'logos:aws-dynamodb', label: 'DynamoDB' },
         { icon: 'logos:aws-eventbridge', label: 'EventBridge' },
-        { icon: 'logos:aws', label: 'Textract' },
+        { icon: 'logos:aws-cloudfront', label: 'CloudFront' },
         { icon: 'logos:aws-api-gateway', label: 'API Gateway' },
         { icon: 'logos:aws-cloudformation', label: 'SAM' },
         { icon: 'logos:supabase-icon', label: 'Supabase' },
@@ -180,7 +180,7 @@ export const skills = {
         { icon: 'logos:tableau-icon', label: 'Tableau' },
         { icon: 'logos:microsoft-power-bi', label: 'Power BI' },
         { icon: 'logos:pandas-icon', label: 'Pandas' },
-        { icon: 'simple-icons:openai', label: 'OpenAI' },
+        { icon: 'simple-icons:openrouter', label: 'OpenRouter' },
         { icon: 'logos:git-icon', label: 'Git' },
         { icon: 'skill-icons:github-dark', label: 'GitHub' },
       ],
@@ -272,7 +272,7 @@ export const journey = {
       href: 'https://d3c6ivdcez723d.cloudfront.net/login',
       linkLabel: 'Open the live app',
       body:
-        'A different discipline entirely: cloud architecture rather than visual analytics. We took problem statement 3 and shipped DeadlineIQ — a deadline prioritiser running on Lambda, DynamoDB, EventBridge, Bedrock, Textract and SES. Second in our problem statement.',
+        'A different discipline entirely: cloud architecture rather than visual analytics. We took problem statement 3 and shipped DeadlineIQ — a deadline prioritiser running on Lambda, DynamoDB, EventBridge, S3, CloudFront and SNS. Second in our problem statement.',
     },
   ],
 };
@@ -316,7 +316,7 @@ export const projects = [  {
     image: asset('/assets/projects/deadlineiq.webp'),
     description:
       'A serverless deadline tracker that ranks every assignment you are carrying using arithmetic you can audit — urgency, stakes, effort, progress and clash. The AI writes the sentence explaining the ranking; it never picks the order.',
-    tags: ['AWS Serverless', 'Bedrock', 'Textract', 'React'],
+    tags: ['AWS Serverless', 'CloudFormation', 'OpenRouter', 'React'],
     links: [
       { kind: 'github', href: 'https://github.com/hashinnn/AWS_NYP_Cloud_Hackathon_2026' },
       { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
