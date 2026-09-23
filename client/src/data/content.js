@@ -297,7 +297,7 @@ export const projects = [  {
       { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
       { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
     ],
-    demo: 'Manager login — rachel.lim.manager@emservices.sg / TempPass123!',
+    demo: 'Manager login — rachel.lim.manager@emservices.sg / Beacon15!Sail',
   },
   {
     id: 'genlink',
