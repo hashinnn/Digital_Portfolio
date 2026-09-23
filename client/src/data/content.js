@@ -327,7 +327,7 @@ export const projects = [  {
   },
   {
     id: 'paf-calories',
-    title: 'BurnRate',
+    title: 'Sixteen Models, One Champion',
     award: 'Solo build — from raw data to a deployable model card',
     image: asset('/assets/projects/paf-calories.webp'),
     description:
@@ -340,7 +340,7 @@ export const projects = [  {
   },
   {
     id: 'hospital-flow',
-    title: 'WardFlow',
+    title: 'Where the Waiting Happens',
     award: 'Built on real government healthcare data',
     image: asset('/assets/projects/hospital-flow.webp'),
     description:
