@@ -25,7 +25,7 @@ export default function Journey({ onZoom }) {
                       className={`frame-medal is-${panel.medal}`}
                       title={`${panel.medal === 'silver' ? 'Silver' : 'Bronze'} medal`}
                     >
-                      <Medal width={15} height={15} aria-hidden="true" />
+                      <Medal width={28} height={28} aria-hidden="true" />
                     </span>
                   )}
 
