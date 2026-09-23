@@ -326,19 +326,8 @@ export const projects = [  {
     ],
   },
   {
-    id: 'hospital-flow',
-    title: 'Hospital Patient Flow Dashboard',
-    award: 'Built on real government healthcare data',
-    image: asset('/assets/projects/hospital-flow.webp'),
-    description:
-      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and bottlenecks inside the emergency department. 63% of admissions come from patients aged 65 and over, and the emergency department holds the shortest average wait of any hospital type: 1.8 hours against 5.4 at general hospitals.',
-    tags: ['Power BI', 'DAX', 'Data Modelling'],
-    links: [],
-    noLinkNote: 'Power BI build — no public repo',
-  },
-  {
     id: 'paf-calories',
-    title: 'Predicting Calories Burned',
+    title: 'BurnRate',
     award: 'Solo build — from raw data to a deployable model card',
     image: asset('/assets/projects/paf-calories.webp'),
     description:
@@ -348,6 +337,17 @@ export const projects = [  {
       { kind: 'report', href: asset('/assets/docs/it2214-predicting-calories.pdf') },
       { kind: 'output', href: 'https://it2214-paf-hasini.netlify.app/charts.pdf' },
     ],
+  },
+  {
+    id: 'hospital-flow',
+    title: 'WardFlow',
+    award: 'Built on real government healthcare data',
+    image: asset('/assets/projects/hospital-flow.webp'),
+    description:
+      'A four-page Power BI report on patient flow and efficiency across public hospitals — admissions by age and hour, bed capacity growth, and bottlenecks inside the emergency department. 63% of admissions come from patients aged 65 and over, and the emergency department holds the shortest average wait of any hospital type: 1.8 hours against 5.4 at general hospitals.',
+    tags: ['Power BI', 'DAX', 'Data Modelling'],
+    links: [],
+    noLinkNote: 'Power BI build — no public repo',
   },
   {
     id: 'nypsu',
