@@ -28,10 +28,19 @@ export default function Experience() {
                   ))}
                 </ul>
 
+                {job.quote && (
+                  <figure className="exp-quote">
+                    <blockquote>{job.quote.text}</blockquote>
+                    <figcaption>
+                      {job.quote.by} <i>— {job.quote.role}</i>
+                    </figcaption>
+                  </figure>
+                )}
+
                 <div className="exp-docs">
                   {job.docs.map((doc) => (
                     <a
-                      className="doc-link"
+                      className={`doc-link${doc.kind === 'reference' ? ' is-reference' : ''}`}
                       key={doc.href}
                       href={doc.href}
                       target="_blank"

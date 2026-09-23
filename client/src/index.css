@@ -1809,6 +1809,51 @@ button {
   transform: translateY(-2px);
 }
 
+/* A line from a reference letter, set apart. Third-party words are the one
+   thing on this page I could not have written myself, so they get the weight. */
+.exp-quote {
+  margin: 18px 0 20px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  background: var(--teal-wash);
+}
+
+.exp-quote blockquote {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--white);
+}
+
+.exp-quote blockquote::before {
+  content: '“';
+}
+
+.exp-quote blockquote::after {
+  content: '”';
+}
+
+.exp-quote figcaption {
+  margin-top: 9px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--teal);
+}
+
+.exp-quote figcaption i {
+  font-style: normal;
+  color: var(--text-mute);
+}
+
+/* The reference letters matter more than the certificates, so they read first. */
+.doc-link.is-reference {
+  border-color: var(--line-teal);
+  background: var(--teal-wash);
+  color: var(--teal-bright);
+}
+
 @media (max-width: 720px) {
   .exp-card {
     grid-template-columns: 1fr;

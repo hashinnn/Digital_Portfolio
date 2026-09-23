@@ -379,9 +379,15 @@ export const experience = {
         'Applied accessibility requirements to each design — type sizing, contrast and touch target dimensions — for an audience using low-end devices on unreliable connections.',
         'Presented proposals to staff stakeholders and revised them against their feedback.',
       ],
+      quote: {
+        text:
+          'I have found her to be a driven individual with a keen interest in learning and honing her technical skills.',
+        by: 'Victor Zhu',
+        role: 'Founder and CEO, Hatch',
+      },
       docs: [
         { label: 'Internship certificate', href: asset('/assets/docs/hatch-certificate.pdf') },
-        { label: 'Reference letter — Hatch', href: asset('/assets/docs/hatch-reference-letter.pdf') },
+        { label: 'Reference letter — Hatch', href: asset('/assets/docs/hatch-reference-letter.pdf'), kind: 'reference' },
       ],
     },
     {
@@ -395,9 +401,15 @@ export const experience = {
         'Took the initiative to lead group members and facilitate discussions on several occasions, and volunteered to teach peers the workshop content where I already knew it.',
         'Secured the month-long work attachment with Hatch through the programme.',
       ],
+      quote: {
+        text:
+          'Her maturity exceeds someone of her age, as she is eloquent and thinks critically.',
+        by: 'Louis Puah',
+        role: 'Co-Founder & Director, Crater',
+      },
       docs: [
         { label: 'METEOR certificate', href: asset('/assets/docs/crater-meteor-certificate.png') },
-        { label: 'Reference letter — Crater', href: asset('/assets/docs/crater-reference-letter.pdf') },
+        { label: 'Reference letter — Crater', href: asset('/assets/docs/crater-reference-letter.pdf'), kind: 'reference' },
       ],
     },
   ],
