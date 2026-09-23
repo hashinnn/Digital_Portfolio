@@ -297,6 +297,7 @@ export const projects = [  {
       { kind: 'github', href: 'https://github.com/hashinnn/FSAD_PROJECT' },
       { kind: 'link', href: 'https://fsad-project-pied.vercel.app/login' },
     ],
+    demo: 'Manager login — rachel.lim.manager@emservices.sg / TempPass123!',
   },
   {
     id: 'genlink',
@@ -311,6 +312,7 @@ export const projects = [  {
       { kind: 'link', href: 'https://genlink-283z.onrender.com/' },
       { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7432992530306088961/' },
     ],
+    demo: 'Demo login — demo / Demo@1234. Render free tier, so the first load takes 30–60 seconds.',
   },
   {
     id: 'deadlineiq',
@@ -325,6 +327,7 @@ export const projects = [  {
       { kind: 'link', href: 'https://d3c6ivdcez723d.cloudfront.net/login' },
       { kind: 'linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7496768524195942400/' },
     ],
+    demo: 'Demo login — demo@nyp.edu.sg / demo1234',
   },
   {
     id: 'paf-calories',

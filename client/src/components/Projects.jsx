@@ -40,6 +40,8 @@ export default function Projects({ onZoom }) {
                   ))}
                 </div>
 
+                {project.demo && <p className="project-demo">{project.demo}</p>}
+
                 <div className="project-links">
                   {project.links.length > 0 ? (
                     <>
