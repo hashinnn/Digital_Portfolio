@@ -1425,6 +1425,37 @@ button {
   opacity: 0.5;
 }
 
+/* A medal on the frames that placed. Top right, because the scene label owns
+   the left and the sprocket strip starts below 34px. */
+.frame-medal {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: var(--navy);
+  box-shadow: 0 0 0 3px var(--navy), 0 0 14px -2px currentColor;
+}
+
+.frame-medal.is-bronze {
+  color: #cd7f32;
+}
+
+.frame-medal.is-silver {
+  color: #c7ccd1;
+}
+
+@media (max-width: 720px) {
+  .frame-medal {
+    right: 14px;
+  }
+}
+
 /* A button so the storyboard stills open by keyboard, not just by mouse —
    the same pattern the polaroids and project cards use. */
 .frame-window {

@@ -1,5 +1,5 @@
 import { journey } from '../data/content.js';
-import { ArrowUpRight } from './Icons.jsx';
+import { ArrowUpRight, Medal } from './Icons.jsx';
 
 export default function Journey({ onZoom }) {
   return (
@@ -19,6 +19,15 @@ export default function Journey({ onZoom }) {
                   <span className="frame-scene">
                     Scene {panel.chapter} <i>·</i> {panel.year}
                   </span>
+
+                  {panel.medal && (
+                    <span
+                      className={`frame-medal is-${panel.medal}`}
+                      title={`${panel.medal === 'silver' ? 'Silver' : 'Bronze'} medal`}
+                    >
+                      <Medal width={15} height={15} aria-hidden="true" />
+                    </span>
+                  )}
 
                   <button
                     className="frame-window"
