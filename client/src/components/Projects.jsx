@@ -1,12 +1,14 @@
 import { projects } from '../data/content.js';
-import { ArrowUpRight, Github, LinkedIn, Tableau } from './Icons.jsx';
+import { ArrowUpRight, Doc, Github, LinkedIn, Tableau } from './Icons.jsx';
 
-const linkIcon = { github: Github, link: ArrowUpRight, linkedin: LinkedIn, tableau: Tableau };
+const linkIcon = { github: Github, link: ArrowUpRight, linkedin: LinkedIn, tableau: Tableau, report: Doc, output: ArrowUpRight };
 const linkLabel = {
   github: 'View on GitHub',
   link: 'Open live site',
   linkedin: 'Read the LinkedIn post',
   tableau: 'Open on Tableau Public',
+  report: 'Read the full report',
+  output: 'Open the full model output',
 };
 
 export default function Projects({ onZoom }) {

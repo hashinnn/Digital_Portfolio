@@ -39,7 +39,7 @@ export const profile = {
 export const stats = {
   heading: 'Across every project I have shipped',
   items: [
-    { verb: 'Shipped', value: 7, lines: ['projects', 'five recognised'] },
+    { verb: 'Shipped', value: 6, lines: ['projects', 'four recognised'] },
     { verb: 'Placed in', value: 2, lines: ['hackathons', '2nd and 3rd'] },
     { verb: 'Won', value: 1, lines: ['Outstanding Project', 'Presentation'] },
     { verb: 'Earned', value: 18, lines: ['certifications', '& awards'] },
@@ -94,7 +94,7 @@ export const about = {
 
 export const whyMe = {
   heading: 'Why Me',
-  lead: 'Five of the seven projects on this site were recognised — by competition judges, by lecturers, or by the client I am still working with. None of them stopped at the submission deadline.',
+  lead: 'Five pieces of work on this site were recognised — by competition judges, by lecturers, or by the client I am still working with. None of them stopped at the submission deadline.',
   items: [
     {
       project: 'Genlink',
@@ -262,7 +262,7 @@ export const journey = {
       href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
       linkLabel: 'Open the dashboard',
       body:
-        'Back to the same competition. Two hours, a team, 10,869 orders from Social Gifting, and a dashboard that opened with the answer instead of the exploration. Third place.',
+        'Back to the same competition, this time with a team and two hours on the clock. 10,869 orders and $1.01M of sales from Social Gifting, a Singapore social enterprise, reduced to the handful of patterns a crafter could act on that week — a dashboard that opened with the answer instead of the exploration. Third place.',
     },
     {
       chapter: '04',
@@ -345,22 +345,8 @@ export const projects = [  {
       'A predictive modelling study on 950 gym members, cleaned in KNIME and modelled in SAS Viya. I compared sixteen variants across six families on one fixed partition; the champion is a 13-predictor Gradient Boosting model accurate to ±18.7 calories. SAS picks its champion on training error — I checked the validation partition, found the ordering reversed, and overrode it. The finding underneath: members burn about 718 calories an hour whatever they do, so how long they train matters more than what they pick.',
     tags: ['KNIME', 'SAS Viya', 'Gradient Boosting', 'Model Evaluation'],
     links: [
-      { kind: 'link', href: 'https://it2214-paf-hasini.netlify.app/charts.pdf' },
-    ],
-  },
-  {
-    id: 'suss2026',
-    title: 'Social Gifting Sales Insights',
-    award: '3rd place — SUSS Analytics & Visualisation 2026',
-    image: asset('/assets/projects/suss2026.webp'),
-    description:
-      'A two-hour team build in Tableau answering how Social Gifting, a Singapore social enterprise, can grow income for its crafters. 10,869 orders and $1.01M of sales reduced to the handful of patterns a crafter could act on that week.',
-    tags: ['Tableau', 'EDA', 'Data Storytelling'],
-    links: [
-      {
-        kind: 'tableau',
-        href: 'https://public.tableau.com/views/SUSS_Competition_2026_Pistachio/SocialGiftingCrafterIncomeDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
-      },
+      { kind: 'report', href: asset('/assets/docs/it2214-predicting-calories.pdf') },
+      { kind: 'output', href: 'https://it2214-paf-hasini.netlify.app/charts.pdf' },
     ],
   },
   {
