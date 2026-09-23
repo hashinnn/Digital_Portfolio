@@ -339,10 +339,10 @@ export const projects = [  {
   {
     id: 'paf-calories',
     title: 'Predicting Calories Burned',
-    award: 'Solo build — 16 model variants across six families',
+    award: 'Solo build — from raw data to a deployable model card',
     image: asset('/assets/projects/paf-calories.webp'),
     description:
-      'A predictive modelling study on 950 gym members, cleaned in KNIME and modelled in SAS Viya. I compared sixteen variants across six families on one fixed partition; the champion is a 13-predictor Gradient Boosting model accurate to ±18.7 calories. SAS picks its champion on training error — I checked the validation partition, found the ordering reversed, and overrode it. The finding underneath: members burn about 718 calories an hour whatever they do, so how long they train matters more than what they pick.',
+      'A predictive modelling study on 950 gym members, cleaned in KNIME and modelled in SAS Viya. Sixteen variants across six families on one fixed partition, each hyperparameter tuned until a neighbouring run came back worse. SAS picks its champion on training error — I checked validation, found the ordering reversed, and overrode it. The 13-predictor Gradient Boosting model that won lands within ±18.7 calories and ships with a model card: intended use, quarterly retraining, and a drift alert if rolling error passes ±30.',
     tags: ['KNIME', 'SAS Viya', 'Gradient Boosting', 'Model Evaluation'],
     links: [
       { kind: 'report', href: asset('/assets/docs/it2214-predicting-calories.pdf') },
