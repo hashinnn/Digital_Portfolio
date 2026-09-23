@@ -39,7 +39,7 @@ export const profile = {
 export const stats = {
   heading: 'Across every project I have shipped',
   items: [
-    { verb: 'Shipped', value: 6, lines: ['projects', 'five recognised'] },
+    { verb: 'Shipped', value: 7, lines: ['projects', 'five recognised'] },
     { verb: 'Placed in', value: 2, lines: ['hackathons', '2nd and 3rd'] },
     { verb: 'Won', value: 1, lines: ['Outstanding Project', 'Presentation'] },
     { verb: 'Earned', value: 18, lines: ['certifications', '& awards'] },
@@ -94,7 +94,7 @@ export const about = {
 
 export const whyMe = {
   heading: 'Why Me',
-  lead: 'Five of the six projects on this site were recognised — by competition judges, by lecturers, or by the client I am still working with. None of them stopped at the submission deadline.',
+  lead: 'Five of the seven projects on this site were recognised — by competition judges, by lecturers, or by the client I am still working with. None of them stopped at the submission deadline.',
   items: [
     {
       project: 'Genlink',
@@ -180,6 +180,8 @@ export const skills = {
         { icon: 'logos:tableau-icon', label: 'Tableau' },
         { icon: 'logos:microsoft-power-bi', label: 'Power BI' },
         { icon: 'logos:pandas-icon', label: 'Pandas' },
+        { icon: 'simple-icons:knime', label: 'KNIME' },
+        { icon: 'carbon:model-alt', label: 'SAS Viya' },
         { icon: 'simple-icons:openrouter', label: 'OpenRouter' },
         { icon: 'logos:git-icon', label: 'Git' },
         { icon: 'skill-icons:github-dark', label: 'GitHub' },
@@ -333,6 +335,18 @@ export const projects = [  {
     tags: ['Power BI', 'DAX', 'Data Modelling'],
     links: [],
     noLinkNote: 'Power BI build — no public repo',
+  },
+  {
+    id: 'paf-calories',
+    title: 'Predicting Calories Burned',
+    award: 'Solo build — 16 model variants across six families',
+    image: asset('/assets/projects/paf-calories.webp'),
+    description:
+      'A predictive modelling study on 950 gym members, cleaned in KNIME and modelled in SAS Viya. I compared sixteen variants across six families on one fixed partition; the champion is a 13-predictor Gradient Boosting model accurate to ±18.7 calories. SAS picks its champion on training error — I checked the validation partition, found the ordering reversed, and overrode it. The finding underneath: members burn about 718 calories an hour whatever they do, so how long they train matters more than what they pick.',
+    tags: ['KNIME', 'SAS Viya', 'Gradient Boosting', 'Model Evaluation'],
+    links: [
+      { kind: 'link', href: 'https://it2214-paf-hasini.netlify.app/charts.pdf' },
+    ],
   },
   {
     id: 'suss2026',
